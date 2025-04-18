@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThessVolt - Ηλεκτρολογικές Υπηρεσίες</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ThessVolt</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Σχετικά</a></li>
+                <li><a href="#services">Υπηρεσίες</a></li>
+                <li><a href="#contact">Επικοινωνία</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Καλώς ήρθατε στην ThessVolt</h2>
+        <p>Η ThessVolt προσφέρει υψηλής ποιότητας ηλεκτρολογικές υπηρεσίες στην Θεσσαλονίκη και γύρω περιοχές, με εξειδίκευση στη διάγνωση και επισκευή ηλεκτρολογικών βλαβών, καθώς και στην εγκατάσταση σύγχρονων ηλεκτρολογικών συστημάτων. Με την εμπειρία και την εξειδίκευσή μας, φροντίζουμε να καλύπτουμε κάθε ανάγκη των πελατών μας με επαγγελματισμό και αξιοπιστία.</p>
+    </section>
+
+    <section id="services">
+        <h2>Υπηρεσίες</h2>
+        <ul>
+            <li>
+                <strong>Έλεγχος και επισκευή ηλεκτρολογικών βλαβών</strong>
+                <p>Αναλαμβάνουμε την πλήρη διάγνωση και επισκευή ηλεκτρολογικών βλαβών σε σπίτια και επαγγελματικούς χώρους.</p>
+            </li>
+            <li>
+                <strong>Εγκατάσταση φωτιστικών και ηλεκτρολογικών συσκευών</strong>
+                <p>Προσφέρουμε υπηρεσίες εγκατάστασης φωτιστικών σωμάτων, πριζών, διακοπτών και άλλων ηλεκτρολογικών συσκευών.</p>
+            </li>
+            <li>
+                <strong>Αυτοματισμοί και έξυπνα συστήματα</strong>
+                <p>Εγκαθιστούμε και συντηρούμε αυτοματισμούς για τον έλεγχο φωτισμού, θέρμανσης, και άλλων συστημάτων στο σπίτι ή την επιχείρησή σας.</p>
+            </li>
+            <li>
+                <strong>Συστήματα ασφαλείας και συναγερμοί</strong>
+                <p>Αναλαμβάνουμε την εγκατάσταση και συντήρηση συστημάτων ασφαλείας και συναγερμών για την προστασία του χώρου σας.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Επικοινωνία</h2>
+        <p>Μπορείτε να επικοινωνήσετε μαζί μας για οποιαδήποτε πληροφορία ή να ζητήσετε προσφορά για τις υπηρεσίες μας.</p>
+        <form action="submit_form.php" method="POST">
+            <label for="name">Όνομα:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Μήνυμα:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Αποστολή</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ThessVolt | Θεσσαλονίκη | Τηλέφωνο: 123-456-789 | Email: info@thessvolt.gr</p>
+    </footer>
+</body>
+</html>
