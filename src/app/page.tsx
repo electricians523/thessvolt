@@ -1,9 +1,9 @@
 "use client";
 
 import Head from "next/head";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import {
   Phone,
   Mail,
@@ -13,7 +13,6 @@ import {
   Wifi,
   Sun,
   Tv2,
-  Lightbulb,
   Cpu
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -70,17 +69,26 @@ const services = [
   }
 ];
 
-
 export default function ThessVolt() {
+  // ✅ Εδώ σωστά ορίζεται η κατάσταση flip για κάθε κάρτα
+  const [flipped, setFlipped] = useState(Array(services.length).fill(false));
+
+  const toggleCard = (index: number) => {
+    setFlipped((prev) => {
+      const updated = [...prev];
+      updated[index] = !updated[index];
+      return updated;
+    });
+  };
+
   return (
     <>
       <Head>
         <title>ThessVolt – Ηλεκτρολόγος Θεσσαλονίκη</title>
         <meta name="description" content="Ηλεκτρολογικές υπηρεσίες στη Θεσσαλονίκη από έμπειρους τεχνίτες. Άμεση εξυπηρέτηση, επαγγελματισμός και ασφάλεια." />
       </Head>
-      <div
-        className="min-h-screen text-white bg-[#033941] relative overflow-hidden"
-      >
+
+      <div className="min-h-screen text-white bg-[#033941] relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-bg.png"
@@ -90,6 +98,7 @@ export default function ThessVolt() {
             priority
           />
         </div>
+
         <div className="relative z-10">
           <header className="p-6 text-center border-b border-white/10">
             <div className="flex items-center justify-center gap-4">
@@ -104,53 +113,50 @@ export default function ThessVolt() {
             </div>
           </header>
 
-    <section className="py-12 px-6">
-<h2 className="text-3xl font-semibold text-center text-yellow-400 mb-2">
-  Οι Ηλεκτρολογικές Υπηρεσίες μας
-</h2>
-<p className="text-md text-gray-200 text-center mb-10">
-  Εξειδικευμένες λύσεις για κάθε ανάγκη στο σπίτι ή την επιχείρησή σας
-</p>
+          {/* 🛠️ Services Section */}
+          <section className="py-12 px-6">
+            <h2 className="text-3xl font-semibold text-center text-yellow-400 mb-2">
+              Οι Ηλεκτρολογικές Υπηρεσίες μας
+            </h2>
+            <p className="text-md text-gray-200 text-center mb-10">
+              Εξειδικευμένες λύσεις για κάθε ανάγκη στο σπίτι ή την επιχείρησή σας
+            </p>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {services.map((service, index) => (
+                <div key={service.title} className="perspective h-[300px]">
+                  <motion.div
+                    onClick={() => toggleCard(index)}
+                    animate={{ rotateY: flipped[index] ? 180 : 0 }}
+                    whileHover={{ rotateY: 180 }}
+                    transition={{ duration: 0.8 }}
+                    className="relative w-full h-full preserve-3d cursor-pointer"
+                  >
+                    {/* Μπροστά */}
+                    <div className="absolute inset-0 backface-hidden">
+                      <Card className="w-full h-full bg-white text-[#033941] shadow-lg">
+                        <CardContent className="flex flex-col items-center gap-4 p-6 text-center h-full justify-center">
+                          {service.icon}
+                          <h3 className="text-xl font-semibold">{service.title}</h3>
+                          <p className="text-sm text-gray-600">{service.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
 
+                    {/* Πίσω */}
+                    <div className="absolute inset-0 rotate-y-180 backface-hidden">
+                      <Card className="w-full h-full bg-yellow-400 text-[#033941] shadow-lg flex items-center justify-center">
+                        <CardContent className="text-center">
+                          <p className="text-lg font-bold">Ενδεικτική Τιμή</p>
+                          <p className="text-2xl font-extrabold">{service.priceRange}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+        
 
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-  {services.map((service) => {
-  const [flipped, setFlipped] = useState(false);
-  return (
-    <div key={service.title} className="perspective h-[300px]">
-      <motion.div
-        onClick={() => setFlipped(!flipped)}
-        animate={{ rotateY: flipped ? 180 : 0 }}
-        whileHover={{ rotateY: 180 }} // εξακολουθεί να ισχύει για desktop
-        transition={{ duration: 0.8 }}
-        className="relative w-full h-full preserve-3d cursor-pointer"
-      >
-        {/* Μπροστά */}
-        <div className="absolute inset-0 backface-hidden">
-          <Card className="w-full h-full bg-white text-[#033941] shadow-lg">
-            <CardContent className="flex flex-col items-center gap-4 p-6 text-center h-full justify-center">
-              {service.icon}
-              <h3 className="text-xl font-semibold">{service.title}</h3>
-              <p className="text-sm text-gray-600">{service.description}</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Πίσω */}
-        <div className="absolute inset-0 rotate-y-180 backface-hidden">
-          <Card className="w-full h-full bg-yellow-400 text-[#033941] shadow-lg flex items-center justify-center">
-            <CardContent className="text-center">
-              <p className="text-lg font-bold">Ενδεικτική Τιμή</p>
-              <p className="text-2xl font-extrabold">{service.priceRange}</p>
-            </CardContent>
-          </Card>
-        </div>
-      </motion.div>
-    </div>
-  );
-})}
 
 
   </div>
