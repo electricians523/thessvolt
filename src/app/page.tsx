@@ -1,3 +1,4 @@
+
 "use client";
 
 import Head from "next/head";
@@ -92,10 +93,14 @@ const [asap, setAsap] = useState(false);
 
   return (
     <>
-      <Head>
-        <title>ThessVolt – Ηλεκτρολόγος Θεσσαλονίκη</title>
-        <meta name="description" content="Ηλεκτρολογικές υπηρεσίες στη Θεσσαλονίκη από έμπειρους τεχνίτες. Άμεση εξυπηρέτηση, επαγγελματισμός και ασφάλεια." />
-      </Head>
+       <Head>
+-   <title>ThessVolt – Ηλεκτρολόγος Θεσσαλονίκη</title>
++   <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
+    <meta
+      name="description"
+      content="Ηλεκτρολογικές υπηρεσίες στη Θεσσαλονίκη από έμπειρους τεχνίτες. Άμεση εξυπηρέτηση, επαγγελματισμός και ασφάλεια."
+    />
+  </Head>
 
       <div className="min-h-screen text-white bg-[#033941] relative overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -175,7 +180,7 @@ const [asap, setAsap] = useState(false);
           <section className="py-12 text-center">
             <h2 className="text-3xl font-semibold text-yellow-400 mb-4">Περιοχή Εξυπηρέτησης</h2>
             <p className="max-w-2xl mx-auto mb-6 text-lg text-gray-200">
-              Καλύπτουμε όλη τη Θεσσαλονίκη και γύρω περιοχές
+              Καλύπτουμε όλη τη Θεσσαλονίκη και τις γύρω περιοχές
             </p>
           </section>
 
