@@ -73,6 +73,15 @@ export default function ThessVolt() {
   // ✅ Εδώ σωστά ορίζεται η κατάσταση flip για κάθε κάρτα
   const [flipped, setFlipped] = useState(Array(services.length).fill(false));
 
+const [name, setName] = useState("");
+const [phone, setPhone] = useState("");
+const [service, setService] = useState("");
+const [date, setDate] = useState("");
+const [time, setTime] = useState("");
+const [asap, setAsap] = useState(false);
+
+
+
   const toggleCard = (index: number) => {
     setFlipped((prev) => {
       const updated = [...prev];
@@ -191,44 +200,115 @@ export default function ThessVolt() {
 
 
 
-      <section className="bg-white text-[#033941] py-12 text-center">
-  <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
-  <div className="flex flex-col items-center gap-3 mb-6">
-    <p className="flex items-center">
-      <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" />
-      <a href="tel:+306982752398" className="hover:underline">
-        698 275 2398
-      </a>
-      {" / "}
-      <a href="tel:+306981149233" className="hover:underline">
-        698 114 9233
-      </a>
-    </p>
-    <p className="flex items-center">
-      <Mail className="inline mr-2 text-yellow-400" aria-hidden="true" />
-      <a href="mailto:electricians523@gmail.com" className="hover:underline">
-        electricians523@gmail.com
-      </a>
-    </p>
-  </div>
-  <div className="flex justify-center gap-4 mb-6">
-    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
-      <a href="https://wa.me/306982752398" target="_blank" rel="noopener noreferrer">
+   <section className="bg-[#033941] text-white py-12 px-6 text-center border-t border-white/10">
+  <h2 className="text-3xl font-semibold mb-6 text-yellow-400">Κλείσε Ραντεβού</h2>
+  <p className="mb-6 text-gray-200">Συμπλήρωσε τα στοιχεία σου και πες μας πότε σε βολεύει να σε καλέσουμε.</p>
+
+  <div className="max-w-xl mx-auto grid gap-4">
+    <input
+      type="text"
+      placeholder="Ονοματεπώνυμο"
+      onChange={(e) => setName(e.target.value)}
+      value={name}
+      className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
+    />
+
+    <input
+      type="text"
+      placeholder="Τηλέφωνο"
+      onChange={(e) => setPhone(e.target.value)}
+      value={phone}
+      className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
+    />
+
+    <select
+      value={service}
+      onChange={(e) => setService(e.target.value)}
+      className="p-3 rounded-md text-[#033941] bg-white w-full"
+    >
+      <option value="">Επιλογή Υπηρεσίας</option>
+      <option value="Ηλεκτρολογικές Βλάβες">Ηλεκτρολογικές Βλάβες</option>
+      <option value="Πρίζες & Διακόπτες">Πρίζες & Διακόπτες</option>
+      <option value="Συστήματα Ασφαλείας">Συστήματα Ασφαλείας</option>
+      <option value="Έξυπνοι Αυτοματισμοί">Έξυπνοι Αυτοματισμοί</option>
+      <option value="Δικτυώσεις & Internet">Δικτυώσεις & Internet</option>
+      <option value="Φωτιστικά Σώματα">Φωτιστικά Σώματα</option>
+      <option value="Κεραίες & Τηλεόραση">Κεραίες & Τηλεόραση</option>
+      <option value="Έξυπνα Συστήματα Ελέγχου">Έξυπνα Συστήματα Ελέγχου</option>
+    </select>
+
+    <label className="text-left text-gray-200 flex items-center gap-2">
+      <input
+        type="checkbox"
+        checked={asap}
+        onChange={() => setAsap(!asap)}
+        className="accent-yellow-400"
+      />
+      Θέλω όσο πιο άμεσα γίνεται
+    </label>
+
+    {!asap && (
+      <>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="p-3 rounded-md text-[#033941] bg-white w-full"
+        />
+
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          className="p-3 rounded-md text-[#033941] bg-white w-full"
+        />
+      </>
+    )}
+
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+      <button
+        onClick={() => {
+          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
+            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
+          }`;
+          window.open(`https://wa.me/306982752398?text=${encodeURIComponent(message)}`, "_blank");
+        }}
+        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
+      >
         WhatsApp
-      </a>
-    </Button>
-    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
-      <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">
+      </button>
+
+      <button
+        onClick={() => {
+          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
+            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
+          }`;
+          window.open(`viber://forward?text=${encodeURIComponent(message)}`, "_blank");
+        }}
+        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
+      >
         Viber
-      </a>
-    </Button>
+      </button>
+
+      <button
+        onClick={() => {
+          const subject = "Κλείσιμο Ραντεβού ThessVolt";
+          const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
+            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
+          }`;
+          window.open(`mailto:electricians523@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+        }}
+        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
+      >
+        Email
+      </button>
+    </div>
   </div>
-  <Button asChild className="bg-[#033941] text-white hover:bg-[#05515e]">
-    <a href="https://g.co/kgs/3dbLYwo" target="_blank" rel="noopener noreferrer">
-      Δείτε μας στο Google
-    </a>
-  </Button>
 </section>
+
+
+
+
 
 
           <footer className="text-center py-4 text-sm text-gray-300 bg-[#033941]">
