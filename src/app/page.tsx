@@ -191,30 +191,45 @@ export default function ThessVolt() {
 
 
 
-          <section className="bg-white text-[#033941] py-12 text-center">
-            <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
-            <div className="flex flex-col items-center gap-3 mb-6">
-              <p className="flex items-center">
-                <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" /> 698 275 2398 / 698 114 9233
-              </p>
-              <p className="flex items-center">
-                <Mail className="inline mr-2 text-yellow-400" aria-hidden="true" /> electricians523@gmail.com
-              </p>
-            </div>
-            <div className="flex justify-center gap-4 mb-6">
-              <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
-                <a href="https://wa.me/306982752398" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-              </Button>
-              <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
-                <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">Viber</a>
-              </Button>
-            </div>
-            <Button asChild className="bg-[#033941] text-white hover:bg-[#05515e]">
-              <a href="https://g.co/kgs/3dbLYwo" target="_blank" rel="noopener noreferrer">
-                Δείτε μας στο Google
-              </a>
-            </Button>
-          </section>
+      <section className="bg-white text-[#033941] py-12 text-center">
+  <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
+  <div className="flex flex-col items-center gap-3 mb-6">
+    <p className="flex items-center">
+      <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" />
+      <a href="tel:+306982752398" className="hover:underline">
+        698 275 2398
+      </a>
+      {" / "}
+      <a href="tel:+306981149233" className="hover:underline">
+        698 114 9233
+      </a>
+    </p>
+    <p className="flex items-center">
+      <Mail className="inline mr-2 text-yellow-400" aria-hidden="true" />
+      <a href="mailto:electricians523@gmail.com" className="hover:underline">
+        electricians523@gmail.com
+      </a>
+    </p>
+  </div>
+  <div className="flex justify-center gap-4 mb-6">
+    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
+      <a href="https://wa.me/306982752398" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+    </Button>
+    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
+      <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">
+        Viber
+      </a>
+    </Button>
+  </div>
+  <Button asChild className="bg-[#033941] text-white hover:bg-[#05515e]">
+    <a href="https://g.co/kgs/3dbLYwo" target="_blank" rel="noopener noreferrer">
+      Δείτε μας στο Google
+    </a>
+  </Button>
+</section>
+
 
           <footer className="text-center py-4 text-sm text-gray-300 bg-[#033941]">
             &copy; 2025 ThessVolt.
