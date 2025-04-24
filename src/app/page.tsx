@@ -197,6 +197,28 @@ const [asap, setAsap] = useState(false);
 
 </section>
 
+<section className="bg-white text-[#033941] py-12 text-center">
+  <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
+  <div className="flex flex-col items-center gap-3 mb-6">
+    <p className="flex items-center">
+      <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" />
+      <a href="tel:+306982752398" className="hover:underline">
+        698 275 2398
+      </a>
+      {" / "}
+      <a href="tel:+306981149233" className="hover:underline">
+        698 114 9233
+      </a>
+    </p>
+    <p className="flex items-center">
+      <Mail className="inline mr-2 text-yellow-400" aria-hidden="true" />
+      <a href="mailto:electricians523@gmail.com" className="hover:underline">
+        electricians523@gmail.com
+      </a>
+    </p>
+  </div>
+</section>
+
 
 
 
