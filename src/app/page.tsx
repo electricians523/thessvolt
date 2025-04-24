@@ -1,4 +1,3 @@
-
 "use client";
 
 import Head from "next/head";
@@ -19,69 +18,123 @@ import {
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+// Προσθήκη υποκατηγοριών υπηρεσιών για εμφάνιση στην πίσω όψη κάθε κάρτας
 const services = [
   {
     icon: <Zap className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Ηλεκτρολογικές Βλάβες",
     description: "Άμεση διάγνωση και αποκατάσταση ηλεκτρολογικών βλαβών.",
-    priceRange: "20–40 €"
+    subservices: [
+      "Διάγνωση βλαβών",
+      "Αντικατάσταση καλωδίων",
+      "Αποκατάσταση ασφαλειών",
+      "Ανίχνευση διαρροής ρεύματος",
+      "Επισκευή πριζών και διακοπτών",
+      "Αποκατάσταση υπερφόρτωσης πίνακα"
+    ]
   },
   {
     icon: <Wrench className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Πρίζες & Διακόπτες",
     description: "Εγκατάσταση & αντικατάσταση με ασφάλεια και ακρίβεια.",
-    priceRange: "10–20 €"
+    subservices: [
+      "Τοποθέτηση νέων πριζών",
+      "Αντικατάσταση διακοπτών",
+      "Εγκατάσταση dimmer",
+      "Μετακίνηση πρίζας",
+      "Τοποθέτηση πρίζας με USB",
+      "Εγκατάσταση διακόπτη αλέ-ρετούρ"
+    ]
   },
   {
     icon: <ShieldCheck className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Συστήματα Ασφαλείας",
     description: "Αισθητήρες, συναγερμοί, κάμερες, smart συστήματα.",
-    priceRange: "50–100 €"
+    subservices: [
+      "Τοποθέτηση καμερών",
+      "Εγκατάσταση συναγερμού",
+      "Ρύθμιση smart alarm",
+      "Τοποθέτηση μαγνητικών επαφών",
+      "Απομακρυσμένος έλεγχος μέσω app",
+      "Αντικατάσταση μπαταρίας backup"
+    ]
   },
   {
     icon: <Zap className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Έξυπνοι Αυτοματισμοί",
     description: "Smart λειτουργίες, αυτοματισμοί κτιρίων, app control.",
-    priceRange: "60–120 €"
+    subservices: [
+      "Φωτισμός με χρονοπρογραμματισμό",
+      "Έλεγχος ρολών",
+      "Smart home integration",
+      "Έλεγχος με φωνητικές εντολές",
+      "Αυτοματισμοί για επαγγελματικούς χώρους",
+      "Ρύθμιση smart ρελέ"
+    ]
   },
   {
     icon: <Wifi className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Δικτυώσεις & Internet",
     description: "Κατασκευή και ρύθμιση δικτύων, ethernet & WiFi.",
-    priceRange: "15–60 €"
+    subservices: [
+      "Στήσιμο WiFi mesh",
+      "Καθορισμός VLAN",
+      "Ρύθμιση router",
+      "Εγκατάσταση access points",
+      "Τοποθέτηση καλωδίωσης ethernet",
+      "Δίκτυα για επαγγελματικούς χώρους"
+    ]
   },
   {
     icon: <Sun className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Φωτιστικά Σώματα",
     description: "Τοποθέτηση φωτισμού εσωτερικών και εξωτερικών χώρων.",
-    priceRange: "15–50 €"
+    subservices: [
+      "Τοποθέτηση όλων των ειδών φωτιστικών",
+      "Εγκατάσταση led ταινίας",
+      "Ρύθμιση dimmer",
+      "Αντικατάσταση φωτιστικών με LED",
+      "Εξωτερικός φωτισμός κήπου/αυλής",
+      "Αρχιτεκτονικός φωτισμός"
+    ]
   },
   {
     icon: <Tv2 className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Κεραίες & Τηλεόραση",
     description: "Τοποθέτηση, ρύθμιση και troubleshooting.",
-    priceRange: "30–70 €"
+    subservices: [
+      "Ευθυγράμμιση κεραίας",
+      "Εγκατάσταση ψηφιακού δέκτη",
+      "Ρύθμιση καναλιών",
+      "Ενίσχυση σήματος τηλεόρασης",
+      "Πέρασμα καλωδίων κεραίας",
+      "Τοποθέτηση τηλεόρασης σε τοίχο"
+    ]
   },
   {
     icon: <Cpu className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
     title: "Έξυπνα Συστήματα Ελέγχου",
     description: "Ρυθμίσεις και έλεγχος εξοπλισμού από απόσταση.",
-    priceRange: "40–90 €"
+    subservices: [
+      "Remote monitoring",
+      "Cloud integration",
+      "Απομακρυσμένη διαχείριση",
+      "Έλεγχος κατανάλωσης ρεύματος",
+      "Σύνδεση με Google Assistant ή Alexa",
+      "Κεντρικός πίνακας αυτοματισμών"
+    ]
   }
 ];
 
+
 export default function ThessVolt() {
-  // ✅ Εδώ σωστά ορίζεται η κατάσταση flip για κάθε κάρτα
   const [flipped, setFlipped] = useState(Array(services.length).fill(false));
-
-const [name, setName] = useState("");
-const [phone, setPhone] = useState("");
-const [service, setService] = useState("");
-const [date, setDate] = useState("");
-const [time, setTime] = useState("");
-const [asap, setAsap] = useState(false);
-
-
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [asap, setAsap] = useState(false);
 
   const toggleCard = (index: number) => {
     setFlipped((prev) => {
@@ -93,14 +146,13 @@ const [asap, setAsap] = useState(false);
 
   return (
     <>
-       <Head>
--   <title>ThessVolt – Ηλεκτρολόγος Θεσσαλονίκη</title>
-+   <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
-    <meta
-      name="description"
-      content="Ηλεκτρολογικές υπηρεσίες στη Θεσσαλονίκη από έμπειρους τεχνίτες. Άμεση εξυπηρέτηση, επαγγελματισμός και ασφάλεια."
-    />
-  </Head>
+      <Head>
+        <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
+        <meta
+          name="description"
+          content="Ηλεκτρολογικές υπηρεσίες στη Θεσσαλονίκη από έμπειρους τεχνίτες. Άμεση εξυπηρέτηση, επαγγελματισμός και ασφάλεια."
+        />
+      </Head>
 
       <div className="min-h-screen text-white bg-[#033941] relative overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -127,7 +179,7 @@ const [asap, setAsap] = useState(false);
             </div>
           </header>
 
-          {/* 🛠️ Services Section */}
+          {/* Services Section */}
           <section className="py-12 px-6">
             <h2 className="text-3xl font-semibold text-center text-yellow-400 mb-2">
               Οι Ηλεκτρολογικές Υπηρεσίες μας
@@ -137,8 +189,8 @@ const [asap, setAsap] = useState(false);
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {services.map((service, index) => (
-                <div key={service.title} className="perspective h-[300px]">
+              {services.map((serviceItem, index) => (
+                <div key={serviceItem.title} className="perspective h-[300px]">
                   <motion.div
                     onClick={() => toggleCard(index)}
                     animate={{ rotateY: flipped[index] ? 180 : 0 }}
@@ -146,35 +198,35 @@ const [asap, setAsap] = useState(false);
                     transition={{ duration: 0.8 }}
                     className="relative w-full h-full preserve-3d cursor-pointer"
                   >
-                    {/* Μπροστά */}
+                    {/* Front */}
                     <div className="absolute inset-0 backface-hidden">
                       <Card className="w-full h-full bg-white text-[#033941] shadow-lg">
                         <CardContent className="flex flex-col items-center gap-4 p-6 text-center h-full justify-center">
-                          {service.icon}
-                          <h3 className="text-xl font-semibold">{service.title}</h3>
-                          <p className="text-sm text-gray-600">{service.description}</p>
+                          {serviceItem.icon}
+                          <h3 className="text-xl font-semibold">{serviceItem.title}</h3>
+                          <p className="text-sm text-gray-600">{serviceItem.description}</p>
                         </CardContent>
                       </Card>
                     </div>
 
-                    {/* Πίσω */}
+                    {/* Back – λίστα υπο-υπηρεσιών */}
                     <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                      <Card className="w-full h-full bg-yellow-400 text-[#033941] shadow-lg flex items-center justify-center">
-                        <CardContent className="text-center">
-                          <p className="text-lg font-bold">Ενδεικτική Τιμή</p>
-                          <p className="text-2xl font-extrabold">{service.priceRange}</p>
+                      <Card className="w-full h-full bg-yellow-400 text-[#033941] shadow-lg overflow-auto">
+                        <CardContent className="p-6">
+                         
+                          <ul className="list-disc list-inside space-y-1 text-sm">
+                            {serviceItem.subservices.map((sub, idx) => (
+                              <li key={idx}>{sub}</li>
+                            ))}
+                          </ul>
                         </CardContent>
                       </Card>
                     </div>
                   </motion.div>
                 </div>
               ))}
-        
-
-
-
-  </div>
-</section>
+            </div>
+          </section>
 
 
           <section className="py-12 text-center">
@@ -187,7 +239,7 @@ const [asap, setAsap] = useState(false);
 <section className="py-16 px-6 text-center">
   <h2 className="text-3xl font-semibold text-yellow-400 mb-6">Τιμοκατάλογος</h2>
   <p className="text-lg text-gray-200 max-w-xl mx-auto mb-6">
-    Κατεβάστε τον αναλυτικό μας τιμοκατάλογο με όλες τις υπηρεσίες και τις τιμές μας σε μορφή PDF.
+    Κατεβάστε τον ενδεικτικό μας τιμοκατάλογο με όλες τις υπηρεσίες και τις τιμές μας σε μορφή PDF.
   </p>
   <div className="flex justify-center">
   <Button
@@ -250,8 +302,8 @@ const [asap, setAsap] = useState(false);
 
 
    <section className="bg-[#033941] text-white py-12 px-6 text-center border-t border-white/10">
-  <h2 className="text-3xl font-semibold mb-6 text-yellow-400">Κλείσε Ραντεβού</h2>
-  <p className="mb-6 text-gray-200">Συμπλήρωσε τα στοιχεία σου και πες μας πότε σε βολεύει να σε καλέσουμε.</p>
+  <h2 className="text-3xl font-semibold mb-6 text-yellow-400">Κλείστε Ραντεβού</h2>
+  <p className="mb-6 text-gray-200">Συμπληρώστε τα στοιχεία σας και πείτε μας πότε σας εξυπηρετεί να σας καλέσουμε.</p>
 
   <div className="max-w-xl mx-auto grid gap-4">
     <input
