@@ -200,20 +200,21 @@ const [asap, setAsap] = useState(false);
 <section className="bg-white text-[#033941] py-12 text-center">
   <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
   <div className="flex flex-col items-center gap-3 mb-6">
-    <p className="flex items-center">
-      <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" />
-      <a href="tel:+306982752398" className="hover:underline">
-        698 275 2398
-      </a>
-      {" / "}
-      <a href="tel:+306981149233" className="hover:underline">
-        698 114 9233
-      </a>
-    </p>
+  <p className="flex items-center">
+  <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" />
+  <a href="tel:+306982752398" className="hover:underline">
+    698 275 2398
+  </a>
+  <span className="mx-2">/</span>
+  <a href="tel:+306981149233" className="hover:underline">
+    698 114 9233
+  </a>
+</p>
+
     <p className="flex items-center">
       <Mail className="inline mr-2 text-yellow-400" aria-hidden="true" />
-      <a href="mailto:electricians523@gmail.com" className="hover:underline">
-        electricians523@gmail.com
+      <a href="mailto:thessvolt@gmail.com" className="hover:underline">
+        thessvolt@gmail.com
       </a>
     </p>
   </div>
@@ -338,11 +339,11 @@ const [asap, setAsap] = useState(false);
 
       <button
         onClick={() => {
-          const subject = "Κλείσιμο Ραντεβού ThessVolt";
+          const subject = "Ραντεβού ThessVolt";
           const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
             asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
           }`;
-          window.open(`mailto:electricians523@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+          window.open(`mailto:thessvolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
         }}
         className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
       >
