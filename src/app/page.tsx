@@ -217,7 +217,28 @@ const [asap, setAsap] = useState(false);
       </a>
     </p>
   </div>
+  <div className="flex justify-center gap-4 mb-6">
+    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
+      <a href="https://wa.me/306982752398" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+    </Button>
+    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
+      <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">
+        Viber
+      </a>
+    </Button>
+  </div>
+
+  <div className="mt-4">
+    <Button asChild className="bg-[#033941] text-white hover:bg-[#05515e]">
+      <a href="https://g.co/kgs/3dbLYwo" target="_blank" rel="noopener noreferrer">
+        Δείτε μας στο Google
+      </a>
+    </Button>
+  </div>
 </section>
+
 
 
 
@@ -269,23 +290,26 @@ const [asap, setAsap] = useState(false);
       Θέλω όσο πιο άμεσα γίνεται
     </label>
 
-    {!asap && (
-      <>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="p-3 rounded-md text-[#033941] bg-white w-full"
-        />
+  {!asap && (
+  <>
+    <input
+      type="date"
+      placeholder="Επιλογή Ημερομηνίας"
+      value={date}
+      onChange={(e) => setDate(e.target.value)}
+      className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
+    />
 
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          className="p-3 rounded-md text-[#033941] bg-white w-full"
-        />
-      </>
-    )}
+    <input
+      type="time"
+      placeholder="Επιλογή Ώρας"
+      value={time}
+      onChange={(e) => setTime(e.target.value)}
+      className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
+    />
+  </>
+)}
+
 
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
       <button
