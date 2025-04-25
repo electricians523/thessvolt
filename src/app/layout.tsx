@@ -5,6 +5,7 @@ import Head from "next/head";
 import Script from "next/script"; // 🆕 για Scripts
 import CookieConsentBanner from "@/components/CookieConsentBanner"; // ✅ Cookie Consent
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
