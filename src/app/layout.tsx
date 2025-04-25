@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import CookieConsentBanner from "@/components/CookieConsentBanner"; // 🆕 Νέο component χωρίς scripts
+import Script from "next/script"; // 🆕 Μην ξεχάσεις την εισαγωγή
+import CookieConsentBanner from "@/components/CookieConsentBanner"; // ✅
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,15 +38,35 @@ export default function RootLayout({
       </Head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* ✅ Νέο React Cookie Consent Banner */}
+        {/* ✅ Cookie Consent */}
         <CookieConsentBanner />
 
+        {/* ✅ Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-KZ3GPZJ6RS"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KZ3GPZJ6RS');
+            `,
+          }}
+        />
+
         {/* 🔥 Google Ads Script */}
-        <script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-17017784764"
-        ></script>
-        <script
+        />
+        <Script
+          id="google-ads"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -55,6 +76,7 @@ export default function RootLayout({
             `,
           }}
         />
+
         {children}
       </body>
     </html>
