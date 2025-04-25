@@ -2,13 +2,19 @@
 
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    cookieconsent: {
+      initialise: (config: object) => void;
+    };
+  }
+}
+
 export default function CookieConsent() {
   useEffect(() => {
     const tryInit = () => {
-      const win = window as any;
-
-      if (win.cookieconsent?.initialise) {
-        win.cookieconsent.initialise({
+      if (typeof window !== "undefined" && window.cookieconsent?.initialise) {
+        window.cookieconsent.initialise({
           palette: {
             popup: {
               background: "#033941",
@@ -19,8 +25,8 @@ export default function CookieConsent() {
               text: "#033941"
             }
           },
-          theme: "classic", // ή "edgeless", πιο μοντέρνο
-          position: "bottom", // "bottom" ή "bottom-right"
+          theme: "classic",
+          position: "bottom",
           elements: {
             dismiss: '<button aria-label="OK" class="cc-btn cc-dismiss">ΟΚ</button>'
           },
