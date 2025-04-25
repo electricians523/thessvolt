@@ -281,11 +281,16 @@ export default function ThessVolt() {
         WhatsApp
       </a>
     </Button>
-    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
-      <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">
-        Viber
-      </a>
-    </Button>
+   <Button
+  variant="outline"
+  className="border-[#033941] text-[#033941]"
+  asChild
+>
+  <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">
+    Viber
+  </a>
+</Button>
+
   </div>
 
   <div className="mt-4">
@@ -382,17 +387,15 @@ export default function ThessVolt() {
         WhatsApp
       </button>
 
-      <button
-        onClick={() => {
-          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
-            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
-          }`;
-          window.open(`viber://forward?text=${encodeURIComponent(message)}`, "_blank");
-        }}
-        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
-      >
-        Viber
-      </button>
+    <button
+  onClick={() => {
+    window.open("viber://chat?number=+306982752398", "_blank");
+  }}
+  className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
+>
+  Viber
+</button>
+
 
       <button
         onClick={() => {
@@ -412,14 +415,17 @@ export default function ThessVolt() {
 
 
 
-
-
-
-          <footer className="text-center py-4 text-sm text-gray-300 bg-[#033941]">
-            &copy; 2025 ThessVolt.
+           <footer className="text-center py-4 text-sm text-gray-300 bg-[#033941]">
+            &copy; 2025 ThessVolt.{" "}
+            <a
+              href="/privacy-policy"
+              className="underline hover:text-yellow-400 ml-2"
+            >
+              Πολιτική Απορρήτου
+            </a>
           </footer>
-        </div>
-      </div>
+        </div> {/* Κλείνει το .relative.z-10 */}
+      </div> {/* Κλείνει το .min-h-screen */}
     </>
   );
 }
