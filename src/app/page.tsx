@@ -134,7 +134,7 @@ export default function ThessVolt() {
   const [service, setService] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [asap, setAsap] = useState(false);
+const [asap, setAsap] = useState(false);
 
   const toggleCard = (index: number) => {
     setFlipped((prev) => {
@@ -167,13 +167,14 @@ export default function ThessVolt() {
 
         <div className="relative z-10">
           <header className="p-6 text-center border-b border-white/10">
+
   {/* ✅ Κουμπί Καλέστε μας */}
  <a
   href="tel:+306982752398"
   className="fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center justify-center gap-2 p-3 sm:px-5 sm:py-3 animate-breath"
 >
   <Phone className="w-5 h-5" />
-  <span className="hidden sm:inline">Καλέστε μας</span>
+  <span className="hidden sm:inline">+30 698 275 2398</span>
 </a>
 
             <div className="flex items-center justify-center gap-4">
@@ -274,6 +275,16 @@ export default function ThessVolt() {
 
 </section>
 
+<section className="py-12 text-center">
+  <Button
+    className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md shadow-md"
+    asChild
+  >
+    <a href="/faq">
+      ❓ Συχνές Ερωτήσεις
+    </a>
+  </Button>
+</section>
 
 
 
