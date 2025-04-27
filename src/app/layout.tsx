@@ -28,29 +28,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el">
-      <Head>
-        <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
-        <meta
-          name="description"
-          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
-        />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
 
-        {/* OpenGraph Meta */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
-        <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
-        <meta property="og:url" content="https://www.thessvolt.gr/" />
-        <meta property="og:image" content="https://www.thessvolt.gr/big_logo.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+ <Head>
+  <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
+  <meta name="description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
 
-        {/* Twitter Meta */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
-        <meta name="twitter:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
-        <meta name="twitter:image" content="https://www.thessvolt.gr/big_logo.png" />
-      </Head>
+  {/* OpenGraph Meta */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+  <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <meta property="og:url" content="https://www.thessvolt.gr/" />
+  <meta property="og:image" content="https://www.thessvolt.gr/big_logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες και Λύσεις στη Θεσσαλονίκη" />
+
+  {/* Twitter Card Meta */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+  <meta name="twitter:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <meta name="twitter:image" content="https://www.thessvolt.gr/big_logo.png" />
+</Head>
+
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         
