@@ -29,33 +29,27 @@ export default function RootLayout({
   return (
     <html lang="el">
 
- export const metadata: Metadata = {
-  title: "ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη",
-  description: "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
-  openGraph: {
-    type: "website",
-    url: "https://www.thessvolt.gr/",
-    title: "ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη",
-    description: "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
-    images: [
-      {
-        url: "https://www.thessvolt.gr/big_logo.png",
-        width: 1200,
-        height: 630,
-        alt: "ThessVolt – Ηλεκτρολογικές Υπηρεσίες και Λύσεις στη Θεσσαλονίκη",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη",
-    description: "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
-    images: ["https://www.thessvolt.gr/big_logo.png"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+ <Head>
+  <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
+  <meta name="description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+
+  {/* OpenGraph Meta */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+  <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <meta property="og:url" content="https://www.thessvolt.gr/" />
+  <meta property="og:image" content="https://www.thessvolt.gr/big_logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες και Λύσεις στη Θεσσαλονίκη" />
+
+  {/* Twitter Card Meta */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+  <meta name="twitter:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <meta name="twitter:image" content="https://www.thessvolt.gr/big_logo.png" />
+</Head>
 
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
