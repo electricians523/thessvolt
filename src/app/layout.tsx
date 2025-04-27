@@ -29,14 +29,62 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el">
-      <Head>
-        <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
-        <meta
-          name="description"
-          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
-        />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </Head>
+     <Head>
+  <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
+  <meta
+    name="description"
+    content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
+  />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+
+  {/* OpenGraph Tags για Google/Social */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+  <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <meta property="og:url" content="https://www.thessvolt.gr/" />
+  <meta property="og:image" content="https://www.thessvolt.gr/favicon.ico" />
+
+  {/* Twitter Card Tags */}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+  <meta name="twitter:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+  <meta name="twitter:image" content="https://www.thessvolt.gr/favicon.ico" />
+<Script
+  id="structured-data"
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "name": "ThessVolt",
+      "description": "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
+      "url": "https://www.thessvolt.gr/",
+      "logo": "https://www.thessvolt.gr/favicon.ico",
+      "image": "https://www.thessvolt.gr/favicon.ico",
+      "telephone": "+30 698 275 2398",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Θεσσαλονίκη",
+        "addressCountry": "GR"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Θεσσαλονίκη"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+30 698 275 2398",
+        "contactType": "customer service",
+        "areaServed": "GR",
+        "availableLanguage": "Greek"
+      }
+    })
+  }}
+/>
+
+</Head>
+
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* ✅ Cookie Consent */}
