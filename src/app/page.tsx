@@ -238,16 +238,19 @@ const [asap, setAsap] = useState(false);
             </div>
           </section>
 
-<section className="py-12 text-center">
-  <Button
-    className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md shadow-md"
-    asChild
-  >
-    <a href="/pistopoiitiko-dei">
-      📄 Έκδοση Πιστοποιητικών ΔΕΗ (ΥΔΕ)
-    </a>
-  </Button>
+<section className="py-12">
+  <div className="flex justify-center">
+    <Button
+      className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md shadow-md"
+      asChild
+    >
+      <a href="/pistopoiitiko-dei">
+        📄 Έκδοση Πιστοποιητικών ΔΕΗ (ΥΔΕ)
+      </a>
+    </Button>
+  </div>
 </section>
+
 
 
           <section className="py-12 text-center">
