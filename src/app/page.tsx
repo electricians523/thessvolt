@@ -243,7 +243,7 @@ export default function ThessVolt() {
     asChild
   >
     <a href="/pistopoiitiko-dei">
-      📄 Δείτε περισσότερα για Πιστοποιητικά ΔΕΗ (ΥΔΕ)
+      📄 Έκδοση Πιστοποιητικών ΔΕΗ (ΥΔΕ)
     </a>
   </Button>
 </section>

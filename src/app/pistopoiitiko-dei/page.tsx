@@ -33,7 +33,7 @@ export default function PistopoiitikoDei() {
                 <li>Για επανασύνδεση διακοπείσας παροχής</li>
                 <li>Για αλλαγή ιδιοκτησίας ή ενοικιαστή</li>
                 <li>Για αύξηση ή μείωση ισχύος παροχής</li>
-                <li>Για περιοδικό έλεγχο υφιστάμενης εγκατάστασης (κάθε 14 ή 7 χρόνια)</li>
+                <li>Για περιοδικό έλεγχο υφιστάμενης εγκατάστασης (κάθε 7 ή 14 χρόνια)</li>
               </ul>
             </div>
 
@@ -49,16 +49,17 @@ export default function PistopoiitikoDei() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button
-              className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md font-semibold shadow-md"
-              asChild
-            >
-              <a href="tel:+306982752398">
-                📞 Καλέστε μας για Άμεση Έκδοση Πιστοποιητικού
-              </a>
-            </Button>
-          </div>
+         <div className="flex justify-center mt-8">
+  <Button
+    className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-6 py-4 rounded-md font-semibold shadow-md w-full max-w-xs sm:max-w-md"
+    asChild
+  >
+    <a href="tel:+306982752398">
+      📞 Καλέστε μας για έκδοση
+    </a>
+  </Button>
+</div>
+
         </div>
       </div>
     </>
