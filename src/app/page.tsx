@@ -78,7 +78,7 @@ const services = [
     description: "Κατασκευή και ρύθμιση δικτύων, ethernet & WiFi.",
     subservices: [
       "Στήσιμο WiFi mesh",
-      "Καθορισμός VLAN",
+      "Οπτικές ίνες",
       "Ρύθμιση router",
       "Εγκατάσταση access points",
       "Τοποθέτηση καλωδίωσης ethernet",
