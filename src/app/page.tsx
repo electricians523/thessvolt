@@ -237,6 +237,17 @@ export default function ThessVolt() {
             </div>
           </section>
 
+<section className="py-12 text-center">
+  <Button
+    className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md shadow-md"
+    asChild
+  >
+    <a href="/pistopoiitiko-dei">
+      📄 Δείτε περισσότερα για Πιστοποιητικά ΔΕΗ (ΥΔΕ)
+    </a>
+  </Button>
+</section>
+
 
           <section className="py-12 text-center">
             <h2 className="text-3xl font-semibold text-yellow-400 mb-4">Περιοχή Εξυπηρέτησης</h2>
@@ -262,6 +273,9 @@ export default function ThessVolt() {
 </div>
 
 </section>
+
+
+
 
 <section className="bg-white text-[#033941] py-12 text-center">
   <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
