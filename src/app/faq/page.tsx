@@ -89,7 +89,8 @@ export default function FAQPage() {
 
           {Object.entries(groupedFaqs).map(([category, faqs], groupIdx) => (
             <div key={groupIdx}>
-              <h2 className="text-2xl font-semibold text-yellow-400 mb-6">{category}</h2>
+              <h2 className="text-2xl font-semibold text-yellow-400 mb-6 text-center">{category}</h2>
+
 
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
