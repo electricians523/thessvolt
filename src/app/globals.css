@@ -136,3 +136,19 @@
     transform: rotateY(180deg);
   }
 }
+
+@keyframes breath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  .animate-breath {
+    animation: breath 3s ease-in-out infinite;
+  }
+}
+

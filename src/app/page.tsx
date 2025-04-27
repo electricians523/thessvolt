@@ -168,13 +168,14 @@ export default function ThessVolt() {
         <div className="relative z-10">
           <header className="p-6 text-center border-b border-white/10">
   {/* ✅ Κουμπί Καλέστε μας */}
-  <a
-    href="tel:+306982752398"
-    className="fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center justify-center gap-2 p-3 sm:px-5 sm:py-3"
-  >
-    <Phone className="w-5 h-5" />
-    <span className="hidden sm:inline">Καλέστε μας</span>
-  </a>
+ <a
+  href="tel:+306982752398"
+  className="fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all flex items-center justify-center gap-2 p-3 sm:px-5 sm:py-3 animate-breath"
+>
+  <Phone className="w-5 h-5" />
+  <span className="hidden sm:inline">Καλέστε μας</span>
+</a>
+
             <div className="flex items-center justify-center gap-4">
               <Image
                 src="/log_png.png"
