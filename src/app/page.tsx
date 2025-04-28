@@ -166,29 +166,45 @@ const [asap, setAsap] = useState(false);
         </div>
 
         <div className="relative z-10">
-          <header className="p-6 text-center border-b border-white/10">
+<header className="p-6 text-center border-b border-white/10 relative">
 
-  {/* ✅ Κουμπί Καλέστε μας */}
-<a
-  href="tel:+306982752398"
-  className="hidden sm:flex fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all items-center justify-center gap-2 p-3 sm:px-5 sm:py-3 animate-breath"
->
-  <Phone className="w-5 h-5" />
-  <span className="hidden sm:inline">+30 698 275 2398</span>
-</a>
+  {/* ✅ Κουμπί Καλέστε μας σε μεγάλες οθόνες */}
+  <a
+    href="tel:+306982752398"
+    className="hidden sm:flex fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all items-center justify-center gap-2 p-3 sm:px-5 sm:py-3 animate-breath"
+  >
+    <Phone className="w-5 h-5" />
+    <span className="hidden sm:inline">+30 698 275 2398</span>
+  </a>
+
+  {/* Λογότυπο και Όνομα */}
+  <div className="flex flex-col items-center justify-center gap-2">
+    <div className="flex items-center gap-3">
+      <Image
+        src="/log_png.png"
+        alt="ThessVolt Λογότυπο"
+        width={60}
+        height={60}
+        className="rounded-full"
+      />
+      <h1 className="text-4xl font-bold tracking-wide text-yellow-400">THESSVOLT</h1>
+    </div>
+
+    {/* ✅ Τηλέφωνο για κινητά */}
+    <div className="sm:hidden">
+      <a
+        href="tel:+306982752398"
+        className="inline-flex items-center gap-2 text-yellow-400 font-semibold text-base mt-1"
+      >
+        <Phone className="w-4 h-4" />
+        <span>+30 698 275 2398</span>
+      </a>
+    </div>
+  </div>
+
+</header>
 
 
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/log_png.png"
-                alt="ThessVolt Λογότυπο"
-                width={60}
-                height={60}
-                className="rounded-full"
-              />
-              <h1 className="text-4xl font-bold tracking-wide text-yellow-400">THESSVOLT</h1>
-            </div>
-          </header>
 
           {/* Services Section */}
           <section className="py-12 px-6">
