@@ -193,7 +193,7 @@ const [asap, setAsap] = useState(false);
           {/* Services Section */}
           <section className="py-12 px-6">
             <h2 className="text-3xl font-semibold text-center text-yellow-400 mb-2">
-              Οι Ηλεκτρολογικές Υπηρεσίες μας
+              Οι Ηλεκτρολογικές Υπηρεσίες μας στην Θεσσαλονίκη
             </h2>
             <p className="text-md text-gray-200 text-center mb-10">
               Εξειδικευμένες λύσεις για κάθε ανάγκη στο σπίτι ή την επιχείρησή σας
