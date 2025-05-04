@@ -13,4 +13,16 @@
     <changefreq>yearly</changefreq>
   </url>
 
+  <url>
+    <loc>https://www.thessvolt.gr/pistopoiitiko-dei</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.thessvolt.gr/faq</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
 </urlset>

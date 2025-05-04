@@ -58,39 +58,64 @@ export default function RootLayout({
         <CookieConsentBanner />
 
         {/* ✅ Structured Data έξω από το Head */}
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Electrician",
-              "name": "ThessVolt",
-              "description": "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
-              "url": "https://www.thessvolt.gr/",
-              "logo": "https://www.thessvolt.gr/big_logo.png",
-              "image": "https://www.thessvolt.gr/big_logo.png",
-              "telephone": "+30 698 275 2398",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Θεσσαλονίκη",
-                "addressCountry": "GR"
-              },
-              "areaServed": {
-                "@type": "Place",
-                "name": "Θεσσαλονίκη"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+30 698 275 2398",
-                "contactType": "customer service",
-                "areaServed": "GR",
-                "availableLanguage": "Greek"
-              }
-            })
-          }}
-        />
+  <Script
+  id="structured-data"
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "@id": "https://www.thessvolt.gr/#electrician",
+      "name": "ThessVolt",
+      "description": "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
+      "url": "https://www.thessvolt.gr/",
+      "logo": "https://www.thessvolt.gr/big_logo.png",
+      "image": "https://www.thessvolt.gr/big_logo.png",
+      "telephone": "+30 698 275 2398",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Θεσσαλονίκη"
+      },
+      "availableLanguage": ["Greek"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "10:00",
+          "closes": "15:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+30 698 275 2398",
+        "contactType": "customer service",
+        "areaServed": "GR",
+        "availableLanguage": "Greek"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61575284833732",
+        "https://api.whatsapp.com/send/?phone=306982752398&text&type=phone_number&app_absent=0",
+        "https://g.co/kgs/b4JNVBm"
+      ]
+    })
+  }}
+/>
+
 
         {/* ✅ Google Analytics */}
         <Script
