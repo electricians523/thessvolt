@@ -131,6 +131,7 @@ export default function ThessVolt() {
   const [flipped, setFlipped] = useState(Array(services.length).fill(false));
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+const [area, setArea] = useState("");
   const [service, setService] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -381,6 +382,14 @@ const [asap, setAsap] = useState(false);
       className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
     />
 
+    <input
+      type="text"
+      placeholder="Περιοχή"
+      onChange={(e) => setArea(e.target.value)}
+      value={area}
+      className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
+    />
+
     <select
       value={service}
       onChange={(e) => setService(e.target.value)}
@@ -407,33 +416,36 @@ const [asap, setAsap] = useState(false);
       Θέλω όσο πιο άμεσα γίνεται
     </label>
 
-  {!asap && (
-  <>
-    <input
-      type="date"
-      placeholder="Επιλογή Ημερομηνίας"
-      value={date}
-      onChange={(e) => setDate(e.target.value)}
-      className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
-    />
+    {!asap && (
+      <>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
+        />
 
-    <input
-      type="time"
-      placeholder="Επιλογή Ώρας"
-      value={time}
-      onChange={(e) => setTime(e.target.value)}
-      className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
-    />
-  </>
-)}
-
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
+        />
+      </>
+    )}
 
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
       <button
         onClick={() => {
-          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
+          if (!name || !phone || !service) {
+            alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία.");
+            return;
+          }
+
+          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${
             asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
           }`;
+
           window.open(`https://wa.me/306982752398?text=${encodeURIComponent(message)}`, "_blank");
         }}
         className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
@@ -441,22 +453,36 @@ const [asap, setAsap] = useState(false);
         WhatsApp
       </button>
 
-    <button
-  onClick={() => {
-    window.open("viber://chat?number=+306982752398", "_blank");
-  }}
-  className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
->
-  Viber
-</button>
+      <button
+        onClick={() => {
+          if (!name || !phone || !service) {
+            alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία.");
+            return;
+          }
 
+          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${
+            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
+          }`;
+
+          window.open("viber://chat?number=+306982752398", "_blank");
+        }}
+        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
+      >
+        Viber
+      </button>
 
       <button
         onClick={() => {
+          if (!name || !phone || !service) {
+            alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία.");
+            return;
+          }
+
           const subject = "Ραντεβού ThessVolt";
-          const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n${
+          const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${
             asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
           }`;
+
           window.open(`mailto:thessvolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
         }}
         className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
@@ -466,6 +492,7 @@ const [asap, setAsap] = useState(false);
     </div>
   </div>
 </section>
+
 
 
 
