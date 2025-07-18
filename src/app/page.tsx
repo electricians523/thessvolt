@@ -361,7 +361,7 @@ const [asap, setAsap] = useState(false);
 
 
 
-   <section className="bg-[#033941] text-white py-12 px-6 text-center border-t border-white/10">
+  <section className="bg-[#033941] text-white py-12 px-6 text-center border-t border-white/10">
   <h2 className="text-3xl font-semibold mb-6 text-yellow-400">Κλείστε Ραντεβού</h2>
   <p className="mb-6 text-gray-200">Συμπληρώστε τα στοιχεία σας και πείτε μας πότε σας εξυπηρετεί να σας καλέσουμε.</p>
 
@@ -460,10 +460,7 @@ const [asap, setAsap] = useState(false);
             return;
           }
 
-          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${
-            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
-          }`;
-
+          // Σκοπίμως δεν δηλώνεται message για να μην υπάρξει eslint error
           window.open("viber://chat?number=+306982752398", "_blank");
         }}
         className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
@@ -492,6 +489,7 @@ const [asap, setAsap] = useState(false);
     </div>
   </div>
 </section>
+
 
 
 

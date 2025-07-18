@@ -12,7 +12,10 @@ export default function CookieConsentBanner() {
         color: "#033941",
         fontWeight: "bold",
         padding: "8px 16px",
-        borderRadius: "6px"
+        borderRadius: "6px",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "350px"
       }}
       expires={365}
     >
