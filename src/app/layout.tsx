@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="el">
 
@@ -35,49 +35,44 @@ export default function RootLayout({
           name="description"
           content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
         />
+
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
-        {/* OpenGraph Meta */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη"
-        />
-        <meta
-          property="og:description"
-          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
-        />
-        <meta property="og:url" content="https://www.thessvolt.gr/" />
-        <meta
-          property="og:image"
-          content="https://www.thessvolt.gr/big_logo.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες και Λύσεις στη Θεσσαλονίκη"
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-NK6VSDQF');
+            `,
+          }}
         />
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη"
-        />
-        <meta
-          name="twitter:description"
-          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.thessvolt.gr/big_logo.png"
-        />
+        {/* OpenGraph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
+        <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
+        <meta property="og:url" content="https://www.thessvolt.gr/" />
+        <meta property="og:image" content="https://www.thessvolt.gr/big_logo.png" />
+
       </Head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NK6VSDQF"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
 
         {/* Cookie Consent */}
         <CookieConsentBanner />
@@ -91,57 +86,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Electrician",
-              "@id": "https://www.thessvolt.gr/#electrician",
               name: "ThessVolt",
-              description:
-                "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
               url: "https://www.thessvolt.gr/",
-              logo: "https://www.thessvolt.gr/big_logo.png",
-              image: "https://www.thessvolt.gr/big_logo.png",
               telephone: "+30 698 275 2398",
-              areaServed: {
-                "@type": "Place",
-                name: "Θεσσαλονίκη",
-              },
-              availableLanguage: ["Greek"],
-              openingHoursSpecification: [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                  ],
-                  opens: "08:00",
-                  closes: "21:00",
-                },
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: "Saturday",
-                  opens: "09:00",
-                  closes: "15:00",
-                },
-                {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: "Sunday",
-                  opens: "10:00",
-                  closes: "15:00",
-                },
-              ],
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "698 275 2398",
-                contactType: "customer service",
-                areaServed: "GR",
-                availableLanguage: "Greek",
-              },
-              sameAs: [
-                "https://www.facebook.com/profile.php?id=61575284833732",
-                "https://api.whatsapp.com/send/?phone=306982752398&text&type=phone_number&app_absent=0",
-                "https://g.co/kgs/b4JNVBm",
-              ],
+              areaServed: "Θεσσαλονίκη",
             }),
           }}
         />
@@ -159,13 +107,8 @@ export default function RootLayout({
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-
               gtag('js', new Date());
-
-              // Google Analytics
               gtag('config', 'G-KZ3GPZJ6RS');
-
-              // Google Ads
               gtag('config', 'AW-17492502073');
             `,
           }}
@@ -177,23 +120,14 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              var Tawk_API = Tawk_API || {};
-              Tawk_API.position = 'left';
-
-              Tawk_API.onLoad = function() {
-                Tawk_API.hideWidget();
-                Tawk_API.showWidget();
-              };
-
-              var Tawk_LoadStart = new Date();
+              var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
               (function(){
-                var s1 = document.createElement("script"),
-                    s0 = document.getElementsByTagName("script")[0];
-                s1.async = true;
-                s1.src = 'https://embed.tawk.to/680bd73c7161c519104dc90c/1ipn41h42';
-                s1.charset = 'UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1, s0);
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/680bd73c7161c519104dc90c/1ipn41h42';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
               })();
             `,
           }}
