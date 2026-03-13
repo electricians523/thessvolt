@@ -132,7 +132,7 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+30 698 275 2398",
+                telephone: "698 275 2398",
                 contactType: "customer service",
                 areaServed: "GR",
                 availableLanguage: "Greek",
