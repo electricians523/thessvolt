@@ -29,131 +29,149 @@ export default function RootLayout({
   return (
     <html lang="el">
 
- <Head>
-  <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
-  <meta name="description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
+      <Head>
+        <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
+        <meta
+          name="description"
+          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
 
-  {/* OpenGraph Meta */}
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
-  <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
-  <meta property="og:url" content="https://www.thessvolt.gr/" />
-  <meta property="og:image" content="https://www.thessvolt.gr/big_logo.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες και Λύσεις στη Θεσσαλονίκη" />
+        {/* OpenGraph Meta */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη"
+        />
+        <meta
+          property="og:description"
+          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
+        />
+        <meta property="og:url" content="https://www.thessvolt.gr/" />
+        <meta
+          property="og:image"
+          content="https://www.thessvolt.gr/big_logo.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες και Λύσεις στη Θεσσαλονίκη"
+        />
 
-  {/* Twitter Card Meta */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
-  <meta name="twitter:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
-  <meta name="twitter:image" content="https://www.thessvolt.gr/big_logo.png" />
-</Head>
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη"
+        />
+        <meta
+          name="twitter:description"
+          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.thessvolt.gr/big_logo.png"
+        />
+      </Head>
 
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
 
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        
-        {/* ✅ Cookie Consent */}
+        {/* Cookie Consent */}
         <CookieConsentBanner />
 
-        {/* ✅ Structured Data έξω από το Head */}
-  <Script
-  id="structured-data"
-  type="application/ld+json"
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Electrician",
-      "@id": "https://www.thessvolt.gr/#electrician",
-      "name": "ThessVolt",
-      "description": "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
-      "url": "https://www.thessvolt.gr/",
-      "logo": "https://www.thessvolt.gr/big_logo.png",
-      "image": "https://www.thessvolt.gr/big_logo.png",
-      "telephone": "+30 698 275 2398",
-      "areaServed": {
-        "@type": "Place",
-        "name": "Θεσσαλονίκη"
-      },
-      "availableLanguage": ["Greek"],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
-          ],
-          "opens": "08:00",
-          "closes": "21:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "15:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "10:00",
-          "closes": "15:00"
-        }
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+30 698 275 2398",
-        "contactType": "customer service",
-        "areaServed": "GR",
-        "availableLanguage": "Greek"
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61575284833732",
-        "https://api.whatsapp.com/send/?phone=306982752398&text&type=phone_number&app_absent=0",
-        "https://g.co/kgs/b4JNVBm"
-      ]
-    })
-  }}
-/>
+        {/* Structured Data */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Electrician",
+              "@id": "https://www.thessvolt.gr/#electrician",
+              name: "ThessVolt",
+              description:
+                "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
+              url: "https://www.thessvolt.gr/",
+              logo: "https://www.thessvolt.gr/big_logo.png",
+              image: "https://www.thessvolt.gr/big_logo.png",
+              telephone: "+30 698 275 2398",
+              areaServed: {
+                "@type": "Place",
+                name: "Θεσσαλονίκη",
+              },
+              availableLanguage: ["Greek"],
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                  ],
+                  opens: "08:00",
+                  closes: "21:00",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: "Saturday",
+                  opens: "09:00",
+                  closes: "15:00",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: "Sunday",
+                  opens: "10:00",
+                  closes: "15:00",
+                },
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+30 698 275 2398",
+                contactType: "customer service",
+                areaServed: "GR",
+                availableLanguage: "Greek",
+              },
+              sameAs: [
+                "https://www.facebook.com/profile.php?id=61575284833732",
+                "https://api.whatsapp.com/send/?phone=306982752398&text&type=phone_number&app_absent=0",
+                "https://g.co/kgs/b4JNVBm",
+              ],
+            }),
+          }}
+        />
 
-
-        {/* ✅ Google Analytics */}
+        {/* Google Analytics + Google Ads */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-KZ3GPZJ6RS"
         />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-KZ3GPZJ6RS');
-            `,
-          }}
-        />
 
-        {/* 🔥 Google Ads Script */}
         <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17017784764"
-        />
-        <Script
-          id="google-ads"
+          id="google-tags"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+
               gtag('js', new Date());
+
+              // Google Analytics
+              gtag('config', 'G-KZ3GPZJ6RS');
+
+              // Google Ads
               gtag('config', 'AW-17492502073');
             `,
           }}
         />
 
-        {/* ✅ Tawk.to Live Chat */}
+        {/* Tawk.to Chat */}
         <Script
           id="tawkto-script"
           strategy="afterInteractive"
@@ -177,11 +195,12 @@ export default function RootLayout({
                 s1.setAttribute('crossorigin','*');
                 s0.parentNode.insertBefore(s1, s0);
               })();
-            `
+            `,
           }}
         />
 
         {children}
+
       </body>
     </html>
   );
