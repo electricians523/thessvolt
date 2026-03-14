@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Head from "next/head";
 import Script from "next/script";
+import "./globals.css";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const geistSans = Geist({
@@ -19,6 +18,21 @@ export const metadata: Metadata = {
   title: "ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη",
   description:
     "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη",
+    description:
+      "Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη.",
+    url: "https://www.thessvolt.gr/",
+    images: [
+      {
+        url: "https://www.thessvolt.gr/big_logo.png",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -28,16 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="el">
-      <Head>
-
-        <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
-
-        <meta
-          name="description"
-          content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη."
-        />
-
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 
         {/* Google Tag Manager */}
         <Script
@@ -54,17 +59,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
 
-        {/* OpenGraph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη" />
-        <meta property="og:description" content="Άμεση εξυπηρέτηση και αξιόπιστες ηλεκτρολογικές λύσεις από την ThessVolt στη Θεσσαλονίκη." />
-        <meta property="og:url" content="https://www.thessvolt.gr/" />
-        <meta property="og:image" content="https://www.thessvolt.gr/big_logo.png" />
-
-      </Head>
-
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -75,7 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        {/* Cookie Consent */}
+        {/* Cookie Consent Banner */}
         <CookieConsentBanner />
 
         {/* Structured Data */}
