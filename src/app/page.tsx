@@ -140,11 +140,9 @@ export default function ThessVolt() {
   const [flipped, setFlipped] = useState(Array(services.length).fill(false));
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [area, setArea] = useState("");
   const [service, setService] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [asap, setAsap] = useState(false);
 
   const toggleCard = (index: number) => {
     setFlipped((prev) => {
@@ -450,113 +448,148 @@ export default function ThessVolt() {
           </section>
 
           {/* ── ΡΑΝΤΕΒΟΥ ── */}
-          <section className="bg-[#022a30] border-t border-white/10 py-16 px-4 sm:px-6 text-center">
-            <h2 className="text-2xl font-bold text-yellow-400 mb-1">Κλείστε Ραντεβού</h2>
-            <p className="text-gray-400 text-sm mb-8">Συμπληρώστε τα παρακάτω και θα σας καλέσουμε σύντομα.</p>
+          <section className="border-t border-white/10 py-16 px-4 sm:px-6">
+            <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-            <div className="max-w-lg mx-auto grid gap-3">
-              <input
-                type="text"
-                placeholder="Ονοματεπώνυμο"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <input
-                type="tel"
-                placeholder="Τηλέφωνο"
-                onChange={(e) => setPhone(e.target.value)}
-                value={phone}
-                className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <input
-                type="text"
-                placeholder="Περιοχή"
-                onChange={(e) => setArea(e.target.value)}
-                value={area}
-                className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <select
-                value={service}
-                onChange={(e) => setService(e.target.value)}
-                className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              >
-                <option value="">Επιλογή Υπηρεσίας</option>
-                <option value="Ηλεκτρολογικές Βλάβες">Ηλεκτρολογικές Βλάβες</option>
-                <option value="Πρίζες & Διακόπτες">Πρίζες & Διακόπτες</option>
-                <option value="Συστήματα Ασφαλείας">Συστήματα Ασφαλείας</option>
-                <option value="Έξυπνοι Αυτοματισμοί">Έξυπνοι Αυτοματισμοί</option>
-                <option value="Δικτυώσεις & Internet">Δικτυώσεις & Internet</option>
-                <option value="Φωτιστικά Σώματα">Φωτιστικά Σώματα</option>
-                <option value="Κεραίες & Τηλεόραση">Κεραίες & Τηλεόραση</option>
-                <option value="Έξυπνα Συστήματα Ελέγχου">Έξυπνα Συστήματα Ελέγχου</option>
-                <option value="Πιστοποιητικά ΔΕΗ (ΥΔΕ)">Πιστοποιητικά ΔΕΗ (ΥΔΕ)</option>
-                <option value="Σταθμοί Φόρτισης EV">Σταθμοί Φόρτισης EV</option>
-              </select>
-
-              <label className="text-left text-gray-300 flex items-center gap-2 text-sm cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={asap}
-                  onChange={() => setAsap(!asap)}
-                  className="accent-yellow-400 w-4 h-4"
-                />
-                Θέλω όσο πιο άμεσα γίνεται
-              </label>
-
-              {!asap && (
-                <div className="grid grid-cols-2 gap-3">
-                  <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                  />
-                  <input
-                    type="time"
-                    value={time}
-                    onChange={(e) => setTime(e.target.value)}
-                    className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                  />
+              {/* Αριστερά — κείμενο */}
+              <div className="lg:pt-2">
+                <span className="inline-block bg-yellow-400/15 border border-yellow-400/30 text-yellow-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+                  Ραντεβού
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+                  Κλείστε<br />
+                  <span className="text-yellow-400">Ραντεβού</span>
+                </h2>
+                <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
+                  Συμπληρώστε τα στοιχεία σας και επιλέξτε πότε σας εξυπηρετεί. Θα επικοινωνήσουμε μαζί σας σύντομα.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { icon: "📞", text: "Απάντηση εντός 24 ωρών" },
+                    { icon: "📍", text: "Εξυπηρετούμε όλη τη Θεσσαλονίκη" },
+                    { icon: "✅", text: "Δωρεάν εκτίμηση εργασίας" },
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-center gap-3 text-sm text-gray-300">
+                      <span className="text-base">{item.icon}</span>
+                      {item.text}
+                    </div>
+                  ))}
                 </div>
-              )}
-
-              <div className="grid grid-cols-3 gap-3 mt-2">
-                {[
-                  {
-                    label: "WhatsApp",
-                    action: () => {
-                      if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
-                      const msg = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`}`;
-                      window.open(`https://wa.me/306982752398?text=${encodeURIComponent(msg)}`, "_blank");
-                    },
-                  },
-                  {
-                    label: "Viber",
-                    action: () => {
-                      if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
-                      window.open("viber://chat?number=+306982752398", "_blank");
-                    },
-                  },
-                  {
-                    label: "Email",
-                    action: () => {
-                      if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
-                      const subject = "Ραντεβού ThessVolt";
-                      const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`}`;
-                      window.open(`mailto:thessvolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
-                    },
-                  },
-                ].map(({ label, action }) => (
-                  <button
-                    key={label}
-                    onClick={action}
-                    className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-bold py-3 rounded-xl text-sm transition-colors shadow"
-                  >
-                    {label}
-                  </button>
-                ))}
               </div>
+
+              {/* Δεξιά — φόρμα */}
+              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 sm:p-8">
+                <div className="grid gap-3">
+
+                  {/* Όνομα + Τηλέφωνο side by side */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-1.5 ml-1">Ονοματεπώνυμο</label>
+                      <input
+                        type="text"
+                        placeholder="π.χ. Γιώργος Π."
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                        className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-1.5 ml-1">Τηλέφωνο</label>
+                      <input
+                        type="tel"
+                        placeholder="69X XXX XXXX"
+                        onChange={(e) => setPhone(e.target.value)}
+                        value={phone}
+                        className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Υπηρεσία */}
+                  <div>
+                    <label className="block text-xs text-gray-400 mb-1.5 ml-1">Υπηρεσία</label>
+                    <select
+                      value={service}
+                      onChange={(e) => setService(e.target.value)}
+                      className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    >
+                      <option value="">Επιλέξτε υπηρεσία…</option>
+                      <option value="Ηλεκτρολογικές Βλάβες">Ηλεκτρολογικές Βλάβες</option>
+                      <option value="Πρίζες & Διακόπτες">Πρίζες & Διακόπτες</option>
+                      <option value="Συστήματα Ασφαλείας">Συστήματα Ασφαλείας</option>
+                      <option value="Έξυπνοι Αυτοματισμοί">Έξυπνοι Αυτοματισμοί</option>
+                      <option value="Δικτυώσεις & Internet">Δικτυώσεις & Internet</option>
+                      <option value="Φωτιστικά Σώματα">Φωτιστικά Σώματα</option>
+                      <option value="Κεραίες & Τηλεόραση">Κεραίες & Τηλεόραση</option>
+                      <option value="Έξυπνα Συστήματα Ελέγχου">Έξυπνα Συστήματα Ελέγχου</option>
+                      <option value="Πιστοποιητικά ΔΕΗ (ΥΔΕ)">Πιστοποιητικά ΔΕΗ (ΥΔΕ)</option>
+                      <option value="Σταθμοί Φόρτισης EV">Σταθμοί Φόρτισης EV</option>
+                    </select>
+                  </div>
+
+                  {/* Ημερομηνία + Ώρα */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-1.5 ml-1">Ημερομηνία</label>
+                      <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-1.5 ml-1">Ώρα</label>
+                      <input
+                        type="time"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
+                        className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Κουμπιά αποστολής */}
+                  <div className="grid grid-cols-3 gap-2 pt-1">
+                    {[
+                      {
+                        label: "WhatsApp",
+                        action: () => {
+                          if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
+                          const msg = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n📅 Ημερομηνία: ${date || "–"}\n⏰ Ώρα: ${time || "–"}`;
+                          window.open(`https://wa.me/306982752398?text=${encodeURIComponent(msg)}`, "_blank");
+                        },
+                      },
+                      {
+                        label: "Viber",
+                        action: () => {
+                          if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
+                          window.open("viber://chat?number=+306982752398", "_blank");
+                        },
+                      },
+                      {
+                        label: "Email",
+                        action: () => {
+                          if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
+                          const subject = "Ραντεβού ThessVolt";
+                          const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n⚡ Υπηρεσία: ${service}\n📅 Ημερομηνία: ${date || "–"}\n⏰ Ώρα: ${time || "–"}`;
+                          window.open(`mailto:thessvolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+                        },
+                      },
+                    ].map(({ label, action }) => (
+                      <button
+                        key={label}
+                        onClick={action}
+                        className="bg-yellow-400 hover:bg-yellow-300 active:scale-95 text-[#033941] font-bold py-3 rounded-xl text-sm transition-all shadow"
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </section>
 
