@@ -239,8 +239,7 @@ export default function ThessVolt() {
                 <span className="text-yellow-400">ηλεκτρολογική</span> ανάγκη
               </h2>
               <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-                Από βλάβες και εγκαταστάσεις έως smart home και πιστοποιητικά ΔΕΗ.
-                Γρήγορα, ασφαλή και πιστοποιημένα.
+                Γρήγορα, πιστοποιημένα και με ασφάλεια.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
