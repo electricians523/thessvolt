@@ -13,15 +13,18 @@ import {
   Wifi,
   Sun,
   Tv2,
-  Cpu
+  Cpu,
+  MapPin,
+  Clock,
+  Star,
+  ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// Προσθήκη υποκατηγοριών υπηρεσιών για εμφάνιση στην πίσω όψη κάθε κάρτας
 const services = [
   {
-    icon: <Zap className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Zap className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Ηλεκτρολογικές Βλάβες",
     description: "Άμεση διάγνωση και αποκατάσταση ηλεκτρολογικών βλαβών.",
     subservices: [
@@ -30,11 +33,11 @@ const services = [
       "Αποκατάσταση ασφαλειών",
       "Ανίχνευση διαρροής ρεύματος",
       "Επισκευή πριζών και διακοπτών",
-      "Αποκατάσταση υπερφόρτωσης πίνακα"
-    ]
+      "Αποκατάσταση υπερφόρτωσης πίνακα",
+    ],
   },
   {
-    icon: <Wrench className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Wrench className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Πρίζες & Διακόπτες",
     description: "Εγκατάσταση & αντικατάσταση με ασφάλεια και ακρίβεια.",
     subservices: [
@@ -43,11 +46,11 @@ const services = [
       "Εγκατάσταση dimmer",
       "Μετακίνηση πρίζας",
       "Τοποθέτηση πρίζας με USB",
-      "Εγκατάσταση διακόπτη αλέ-ρετούρ"
-    ]
+      "Εγκατάσταση διακόπτη αλέ-ρετούρ",
+    ],
   },
   {
-    icon: <ShieldCheck className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <ShieldCheck className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Συστήματα Ασφαλείας",
     description: "Αισθητήρες, συναγερμοί, κάμερες, smart συστήματα.",
     subservices: [
@@ -56,11 +59,11 @@ const services = [
       "Ρύθμιση smart alarm",
       "Τοποθέτηση μαγνητικών επαφών",
       "Απομακρυσμένος έλεγχος μέσω app",
-      "Αντικατάσταση μπαταρίας backup"
-    ]
+      "Αντικατάσταση μπαταρίας backup",
+    ],
   },
   {
-    icon: <Zap className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Zap className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Έξυπνοι Αυτοματισμοί",
     description: "Smart λειτουργίες, αυτοματισμοί κτιρίων, app control.",
     subservices: [
@@ -69,11 +72,11 @@ const services = [
       "Smart home integration",
       "Έλεγχος με φωνητικές εντολές",
       "Αυτοματισμοί για επαγγελματικούς χώρους",
-      "Ρύθμιση smart ρελέ"
-    ]
+      "Ρύθμιση smart ρελέ",
+    ],
   },
   {
-    icon: <Wifi className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Wifi className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Δικτυώσεις & Internet",
     description: "Κατασκευή και ρύθμιση δικτύων, ethernet & WiFi.",
     subservices: [
@@ -82,11 +85,11 @@ const services = [
       "Ρύθμιση router",
       "Εγκατάσταση access points",
       "Τοποθέτηση καλωδίωσης ethernet",
-      "Δίκτυα για επαγγελματικούς χώρους"
-    ]
+      "Δίκτυα για επαγγελματικούς χώρους",
+    ],
   },
   {
-    icon: <Sun className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Sun className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Φωτιστικά Σώματα",
     description: "Τοποθέτηση φωτισμού εσωτερικών και εξωτερικών χώρων.",
     subservices: [
@@ -95,11 +98,11 @@ const services = [
       "Ρύθμιση dimmer",
       "Αντικατάσταση φωτιστικών με LED",
       "Εξωτερικός φωτισμός κήπου/αυλής",
-      "Αρχιτεκτονικός φωτισμός"
-    ]
+      "Αρχιτεκτονικός φωτισμός",
+    ],
   },
   {
-    icon: <Tv2 className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Tv2 className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Κεραίες & Τηλεόραση",
     description: "Τοποθέτηση, ρύθμιση και troubleshooting.",
     subservices: [
@@ -108,11 +111,11 @@ const services = [
       "Ρύθμιση καναλιών",
       "Ενίσχυση σήματος τηλεόρασης",
       "Πέρασμα καλωδίων κεραίας",
-      "Τοποθέτηση τηλεόρασης σε τοίχο"
-    ]
+      "Τοποθέτηση τηλεόρασης σε τοίχο",
+    ],
   },
   {
-    icon: <Cpu className="w-8 h-8 text-yellow-400" aria-hidden="true" />,
+    icon: <Cpu className="w-7 h-7 text-yellow-400" aria-hidden="true" />,
     title: "Έξυπνα Συστήματα Ελέγχου",
     description: "Ρυθμίσεις και έλεγχος εξοπλισμού από απόσταση.",
     subservices: [
@@ -121,21 +124,27 @@ const services = [
       "Απομακρυσμένη διαχείριση",
       "Έλεγχος κατανάλωσης ρεύματος",
       "Σύνδεση με Google Assistant ή Alexa",
-      "Κεντρικός πίνακας αυτοματισμών"
-    ]
-  }
+      "Κεντρικός πίνακας αυτοματισμών",
+    ],
+  },
 ];
 
+const stats = [
+  { value: "500+", label: "Ολοκληρωμένες εργασίες" },
+  { value: "24h", label: "Μέγιστος χρόνος απόκρισης" },
+  { value: "10+", label: "Χρόνια εμπειρίας" },
+  { value: "100%", label: "Πιστοποιημένοι τεχνικοί" },
+];
 
 export default function ThessVolt() {
   const [flipped, setFlipped] = useState(Array(services.length).fill(false));
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-const [area, setArea] = useState("");
+  const [area, setArea] = useState("");
   const [service, setService] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-const [asap, setAsap] = useState(false);
+  const [asap, setAsap] = useState(false);
 
   const toggleCard = (index: number) => {
     setFlipped((prev) => {
@@ -151,104 +160,165 @@ const [asap, setAsap] = useState(false);
         <title>ThessVolt – Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη</title>
         <meta
           name="description"
-          content="Ηλεκτρολογικές υπηρεσίες στη Θεσσαλονίκη από έμπειρους τεχνίτες. Άμεση εξυπηρέτηση, επαγγελματισμός και ασφάλεια."
+          content="Αδειούχοι ηλεκτρολόγοι στη Θεσσαλονίκη. Άμεση εξυπηρέτηση σε βλάβες, εγκαταστάσεις, smart home, κάμερες & πιστοποιητικά ΔΕΗ. Καλέστε τώρα!"
         />
       </Head>
 
       <div className="min-h-screen text-white bg-[#033941] relative overflow-hidden">
+        {/* Subtle grid texture overlay */}
+        <div
+          className="absolute inset-0 z-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-bg.png"
             alt="Φόντο με λογότυπο"
             fill
-            className="object-contain object-center opacity-10"
+            className="object-contain object-center opacity-[0.07]"
             priority
           />
         </div>
 
         <div className="relative z-10">
-<header className="p-6 text-center border-b border-white/10 relative">
+          {/* ── HEADER ── */}
+          <header className="px-6 py-5 border-b border-white/10 relative">
+            <a
+              id="call-button-header"
+              href="tel:+306982752398"
+              className="hidden sm:flex fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all items-center justify-center gap-2 px-5 py-3 animate-breath"
+            >
+              <Phone className="w-4 h-4" />
+              <span>+30 698 275 2398</span>
+            </a>
 
-{/* ✅ Κουμπί Καλέστε μας σε μεγάλες οθόνες */}
-<a
-  id="call-button-header"
-  href="tel:+306982752398"
-  className="hidden sm:flex fixed top-4 right-4 z-50 bg-yellow-400 text-[#033941] font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all items-center justify-center gap-2 p-3 sm:px-5 sm:py-3 animate-breath"
->
-  <Phone className="w-5 h-5" />
-  <span className="hidden sm:inline">+30 698 275 2398</span>
-</a>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/log_png.png"
+                  alt="ThessVolt Λογότυπο"
+                  width={52}
+                  height={52}
+                  className="rounded-full ring-2 ring-yellow-400/40"
+                />
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-widest text-yellow-400">
+                  THESSVOLT
+                </h1>
+              </div>
+              <p className="text-xs text-gray-400 tracking-[0.2em] uppercase">
+                Ηλεκτρολογικές Υπηρεσίες · Θεσσαλονίκη
+              </p>
+              <div className="sm:hidden mt-1">
+                <a
+                  id="call-button-mobile"
+                  href="tel:+306982752398"
+                  className="inline-flex items-center gap-2 text-yellow-400 font-semibold text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  +30 698 275 2398
+                </a>
+              </div>
+            </div>
+          </header>
 
-{/* Λογότυπο και Όνομα */}
-<div className="flex flex-col items-center justify-center gap-2">
-  <div className="flex items-center gap-3">
-    <Image
-      src="/log_png.png"
-      alt="ThessVolt Λογότυπο"
-      width={60}
-      height={60}
-      className="rounded-full"
-    />
-    <h1 className="text-4xl font-bold tracking-wide text-yellow-400">
-      THESSVOLT
-    </h1>
-  </div>
+          {/* ── HERO ── */}
+          <section className="py-16 px-6 text-center max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block bg-yellow-400/15 border border-yellow-400/30 text-yellow-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                Αδειούχοι Ηλεκτρολόγοι
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-5">
+                Λύσεις για κάθε{" "}
+                <span className="text-yellow-400">ηλεκτρολογική</span> ανάγκη
+              </h2>
+              <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+                Από βλάβες και εγκαταστάσεις έως smart home και πιστοποιητικά ΔΕΗ.
+                Γρήγορα, ασφαλή και πιστοποιημένα.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="tel:+306982752398"
+                  className="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-bold px-7 py-3.5 rounded-xl shadow-lg transition-all text-base"
+                >
+                  <Phone className="w-4 h-4" />
+                  Καλέστε Τώρα
+                </a>
+                <a
+                  href={`https://wa.me/306982752398?text=${encodeURIComponent("Γεια σας! Θα ήθελα πληροφορίες για τις υπηρεσίες σας.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-yellow-400/50 hover:bg-white/5 text-white font-semibold px-7 py-3.5 rounded-xl transition-all text-base"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </motion.div>
+          </section>
 
-  {/* ✅ Τηλέφωνο για κινητά */}
-  <div className="sm:hidden">
-    <a
-      id="call-button-mobile"
-      href="tel:+306982752398"
-      className="inline-flex items-center gap-2 text-yellow-400 font-semibold text-base mt-1"
-    >
-      <Phone className="w-4 h-4" />
-      <span>+30 698 275 2398</span>
-    </a>
-  </div>
-</div>
+          {/* ── STATS BAR ── */}
+          <section className="mx-4 sm:mx-6 mb-12 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/10">
+              {stats.map((stat) => (
+                <div key={stat.label} className="py-6 text-center">
+                  <p className="text-2xl sm:text-3xl font-bold text-yellow-400">{stat.value}</p>
+                  <p className="text-xs text-gray-400 mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-</header>
+          {/* ── SERVICES ── */}
+          <section className="py-12 px-4 sm:px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-yellow-400 mb-2">
+                Οι Υπηρεσίες μας
+              </h2>
+              <p className="text-gray-400 text-sm max-w-md mx-auto">
+                Αγγίξτε κάθε κάρτα για να δείτε αναλυτικά τι περιλαμβάνει
+              </p>
+            </div>
 
-
-
-          {/* Services Section */}
-          <section className="py-12 px-6">
-            <h2 className="text-3xl font-semibold text-center text-yellow-400 mb-2">
-              Οι Ηλεκτρολογικές Υπηρεσίες μας στην Θεσσαλονίκη
-            </h2>
-            <p className="text-md text-gray-200 text-center mb-10">
-              Εξειδικευμένες λύσεις για κάθε ανάγκη στο σπίτι ή την επιχείρησή σας
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
               {services.map((serviceItem, index) => (
-                <div key={serviceItem.title} className="perspective h-[300px]">
+                <div key={serviceItem.title} className="perspective h-[280px]">
                   <motion.div
                     onClick={() => toggleCard(index)}
                     animate={{ rotateY: flipped[index] ? 180 : 0 }}
                     whileHover={{ rotateY: 180 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.7, ease: "easeInOut" }}
                     className="relative w-full h-full preserve-3d cursor-pointer"
                   >
                     {/* Front */}
                     <div className="absolute inset-0 backface-hidden">
-                      <Card className="w-full h-full bg-white text-[#033941] shadow-lg">
+                      <Card className="w-full h-full bg-white/[0.07] border border-white/10 hover:border-yellow-400/40 transition-colors text-white shadow-none">
                         <CardContent className="flex flex-col items-center gap-4 p-6 text-center h-full justify-center">
-                          {serviceItem.icon}
-                          <h3 className="text-xl font-semibold">{serviceItem.title}</h3>
-                          <p className="text-sm text-gray-600">{serviceItem.description}</p>
+                          <div className="w-14 h-14 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center">
+                            {serviceItem.icon}
+                          </div>
+                          <h3 className="text-base font-semibold leading-snug">{serviceItem.title}</h3>
+                          <p className="text-xs text-gray-400 leading-relaxed">{serviceItem.description}</p>
                         </CardContent>
                       </Card>
                     </div>
 
-                    {/* Back – λίστα υπο-υπηρεσιών */}
+                    {/* Back */}
                     <div className="absolute inset-0 rotate-y-180 backface-hidden">
-                      <Card className="w-full h-full bg-yellow-400 text-[#033941] shadow-lg overflow-auto">
-                        <CardContent className="p-6">
-                         
-                          <ul className="list-disc list-inside space-y-1 text-sm">
+                      <Card className="w-full h-full bg-yellow-400 text-[#033941] shadow-none border-0 overflow-auto">
+                        <CardContent className="p-5">
+                          <p className="font-bold text-sm mb-3">{serviceItem.title}</p>
+                          <ul className="space-y-1.5">
                             {serviceItem.subservices.map((sub, idx) => (
-                              <li key={idx}>{sub}</li>
+                              <li key={idx} className="flex items-start gap-2 text-xs">
+                                <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-[#033941]/40 flex-shrink-0" />
+                                {sub}
+                              </li>
                             ))}
                           </ul>
                         </CardContent>
@@ -260,255 +330,246 @@ const [asap, setAsap] = useState(false);
             </div>
           </section>
 
-<section className="py-12">
-  <div className="flex justify-center">
-    <Button
-      className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md shadow-md"
-      asChild
-    >
-      <a href="/pistopoiitiko-dei">
-        📄 Έκδοση Πιστοποιητικών ΔΕΗ (ΥΔΕ)
-      </a>
-    </Button>
-  </div>
-</section>
+          {/* ── ΠΙΣΤΟΠΟΙΗΤΙΚΑ ΔΕΗ ── */}
+          <section className="py-10 px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto">
+              <a
+                href="/pistopoiitiko-dei"
+                className="group flex flex-col sm:flex-row items-center gap-6 bg-white/[0.06] border border-white/10 hover:border-yellow-400/40 rounded-2xl p-7 transition-all"
+              >
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center">
+                  <span className="text-3xl">📄</span>
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <p className="text-xs text-yellow-400 font-semibold uppercase tracking-widest mb-1">Πιστοποίηση</p>
+                  <h3 className="text-xl font-bold text-white mb-1">Έκδοση Πιστοποιητικών ΔΕΗ (ΥΔΕ)</h3>
+                  <p className="text-gray-400 text-sm">Νέα σύνδεση, επανασύνδεση, αλλαγή παροχής — αναλαμβάνουμε ολόκληρη τη διαδικασία.</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-yellow-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </a>
+            </div>
+          </section>
 
+          {/* ── EV CHARGING BANNER ── */}
+          <section className="py-4 px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto">
+              <a
+                href="/ev-charging"
+                className="group flex flex-col sm:flex-row items-center gap-6 bg-gradient-to-r from-[#022d33] to-[#044f5a] border border-yellow-400/25 hover:border-yellow-400/50 rounded-2xl p-7 transition-all"
+              >
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-yellow-400/15 border border-yellow-400/30 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.19M15 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3.19"/>
+                    <line x1="23" y1="13" x2="23" y2="11"/>
+                    <polyline points="11 6 7 12 13 12 9 18"/>
+                  </svg>
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <span className="inline-block bg-yellow-400 text-[#033941] text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-2">Νέο</span>
+                  <h3 className="text-xl font-bold text-white mb-1">Εγκατάσταση Σταθμών Φόρτισης EV</h3>
+                  <p className="text-gray-400 text-sm">Wall charger για οικίες & επιχειρήσεις. Πλήρης εγκατάσταση με πιστοποίηση.</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-yellow-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </a>
+            </div>
+          </section>
 
-
-          <section className="py-12 text-center">
-            <h2 className="text-3xl font-semibold text-yellow-400 mb-4">Περιοχή Εξυπηρέτησης</h2>
-            <p className="max-w-2xl mx-auto mb-6 text-lg text-gray-200">
-              Καλύπτουμε όλη τη Θεσσαλονίκη και τις γύρω περιοχές
+          {/* ── ΠΕΡΙΟΧΗ ΕΞΥΠΗΡΕΤΗΣΗΣ ── */}
+          <section className="py-14 px-4 sm:px-6 text-center">
+            <MapPin className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
+            <h2 className="text-2xl font-bold text-white mb-2">Περιοχή Εξυπηρέτησης</h2>
+            <p className="text-gray-400 max-w-lg mx-auto text-sm">
+              Καλύπτουμε <span className="text-white font-medium">όλη τη Θεσσαλονίκη</span> και τις γύρω περιοχές — Καλαμαριά, Συκιές, Εύοσμος, Σταυρούπολη, Πολίχνη, Νεάπολη και αλλού.
             </p>
           </section>
 
-<section className="py-16 px-6 text-center">
-  <h2 className="text-3xl font-semibold text-yellow-400 mb-6">Τιμοκατάλογος</h2>
-  <p className="text-lg text-gray-200 max-w-xl mx-auto mb-6">
-    Κατεβάστε τον ενδεικτικό μας τιμοκατάλογο με όλες τις υπηρεσίες και τις τιμές μας σε μορφή PDF.
-  </p>
-  <div className="flex justify-center">
-  <Button
-    className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-base sm:text-lg px-6 py-3 w-full sm:w-auto max-w-xs sm:max-w-none shadow-md"
-    asChild
-  >
-    <a href="/ThessVolt_Timokatalogos.pdf" download target="_blank" rel="noopener noreferrer">
-      📄 Κατεβάστε τον Τιμοκατάλογο (PDF)
-    </a>
-  </Button>
-</div>
+          {/* ── ΤΙΜΟΚΑΤΑΛΟΓΟΣ ── */}
+          <section className="py-6 px-4 sm:px-6 text-center">
+            <div className="max-w-md mx-auto bg-white/[0.04] border border-white/10 rounded-2xl p-8">
+              <span className="text-3xl block mb-4">📋</span>
+              <h2 className="text-xl font-bold text-yellow-400 mb-2">Τιμοκατάλογος</h2>
+              <p className="text-gray-400 text-sm mb-6">
+                Κατεβάστε τον ενδεικτικό μας τιμοκατάλογο σε PDF με όλες τις υπηρεσίες.
+              </p>
+              <Button
+                className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 font-bold w-full rounded-xl"
+                asChild
+              >
+                <a href="/ThessVolt_Timokatalogos.pdf" download target="_blank" rel="noopener noreferrer">
+                  Κατεβάστε το PDF
+                </a>
+              </Button>
+            </div>
+          </section>
 
-</section>
-
-<section className="py-12 text-center">
-  <Button
-    className="bg-yellow-400 text-[#033941] hover:bg-yellow-300 text-lg px-8 py-4 rounded-md shadow-md"
-    asChild
-  >
-    <a href="/faq">
-      ❓ Συχνές Ερωτήσεις
-    </a>
-  </Button>
-</section>
-
-
-
-<section className="bg-white text-[#033941] py-12 text-center">
-  <h2 className="text-3xl font-semibold mb-6">Επικοινωνία</h2>
-  <div className="flex flex-col items-center gap-3 mb-6">
-  <p className="flex items-center">
-  <Phone className="inline mr-2 text-yellow-400" aria-hidden="true" />
-  <a href="tel:+306982752398" className="hover:underline">
-    698 275 2398
-  </a>
-  <span className="mx-2">/</span>
-  <a href="tel:+306981149233" className="hover:underline">
-    698 114 9233
-  </a>
-</p>
-
-    <p className="flex items-center">
-      <Mail className="inline mr-2 text-yellow-400" aria-hidden="true" />
-      <a href="mailto:thessvolt@gmail.com" className="hover:underline">
-        thessvolt@gmail.com
-      </a>
-    </p>
-  </div>
-  <div className="flex justify-center gap-4 mb-6">
-    <Button variant="outline" className="border-[#033941] text-[#033941]" asChild>
-      <a href="https://wa.me/306982752398" target="_blank" rel="noopener noreferrer">
-        WhatsApp
-      </a>
-    </Button>
-   <Button
-  variant="outline"
-  className="border-[#033941] text-[#033941]"
-  asChild
->
-  <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">
-    Viber
-  </a>
-</Button>
-
-  </div>
-
-  <div className="mt-4">
-    <Button asChild className="bg-[#033941] text-white hover:bg-[#05515e]">
-      <a href="https://g.co/kgs/3dbLYwo" target="_blank" rel="noopener noreferrer">
-        Δείτε μας στο Google
-      </a>
-    </Button>
-  </div>
-</section>
-
-
-
-
-
-  <section className="bg-[#033941] text-white py-12 px-6 text-center border-t border-white/10">
-  <h2 className="text-3xl font-semibold mb-6 text-yellow-400">Κλείστε Ραντεβού</h2>
-  <p className="mb-6 text-gray-200">Συμπληρώστε τα στοιχεία σας και πείτε μας πότε σας εξυπηρετεί να σας καλέσουμε.</p>
-
-  <div className="max-w-xl mx-auto grid gap-4">
-    <input
-      type="text"
-      placeholder="Ονοματεπώνυμο"
-      onChange={(e) => setName(e.target.value)}
-      value={name}
-      className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
-    />
-
-    <input
-      type="text"
-      placeholder="Τηλέφωνο"
-      onChange={(e) => setPhone(e.target.value)}
-      value={phone}
-      className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
-    />
-
-    <input
-      type="text"
-      placeholder="Περιοχή"
-      onChange={(e) => setArea(e.target.value)}
-      value={area}
-      className="p-3 rounded-md text-[#033941] bg-white w-full placeholder:text-gray-500"
-    />
-
-    <select
-      value={service}
-      onChange={(e) => setService(e.target.value)}
-      className="p-3 rounded-md text-[#033941] bg-white w-full"
-    >
-      <option value="">Επιλογή Υπηρεσίας</option>
-      <option value="Ηλεκτρολογικές Βλάβες">Ηλεκτρολογικές Βλάβες</option>
-      <option value="Πρίζες & Διακόπτες">Πρίζες & Διακόπτες</option>
-      <option value="Συστήματα Ασφαλείας">Συστήματα Ασφαλείας</option>
-      <option value="Έξυπνοι Αυτοματισμοί">Έξυπνοι Αυτοματισμοί</option>
-      <option value="Δικτυώσεις & Internet">Δικτυώσεις & Internet</option>
-      <option value="Φωτιστικά Σώματα">Φωτιστικά Σώματα</option>
-      <option value="Κεραίες & Τηλεόραση">Κεραίες & Τηλεόραση</option>
-      <option value="Έξυπνα Συστήματα Ελέγχου">Έξυπνα Συστήματα Ελέγχου</option>
-    </select>
-
-    <label className="text-left text-gray-200 flex items-center gap-2">
-      <input
-        type="checkbox"
-        checked={asap}
-        onChange={() => setAsap(!asap)}
-        className="accent-yellow-400"
-      />
-      Θέλω όσο πιο άμεσα γίνεται
-    </label>
-
-    {!asap && (
-      <>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
-        />
-
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          className="p-3 rounded-md text-[#033941] placeholder:text-gray-500 bg-white w-full"
-        />
-      </>
-    )}
-
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-      <button
-        onClick={() => {
-          if (!name || !phone || !service) {
-            alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία.");
-            return;
-          }
-
-          const message = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${
-            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
-          }`;
-
-          window.open(`https://wa.me/306982752398?text=${encodeURIComponent(message)}`, "_blank");
-        }}
-        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
-      >
-        WhatsApp
-      </button>
-
-      <button
-        onClick={() => {
-          if (!name || !phone || !service) {
-            alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία.");
-            return;
-          }
-
-          // Σκοπίμως δεν δηλώνεται message για να μην υπάρξει eslint error
-          window.open("viber://chat?number=+306982752398", "_blank");
-        }}
-        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
-      >
-        Viber
-      </button>
-
-      <button
-        onClick={() => {
-          if (!name || !phone || !service) {
-            alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία.");
-            return;
-          }
-
-          const subject = "Ραντεβού ThessVolt";
-          const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${
-            asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`
-          }`;
-
-          window.open(`mailto:thessvolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
-        }}
-        className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-semibold py-3 px-4 rounded-md shadow-md"
-      >
-        Email
-      </button>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-           <footer className="text-center py-4 text-sm text-gray-300 bg-[#033941]">
-            &copy; 2025 ThessVolt.{" "}
-            <a
-              href="/privacy-policy"
-              className="underline hover:text-yellow-400 ml-2"
+          {/* ── FAQ LINK ── */}
+          <section className="py-6 px-4 sm:px-6 text-center">
+            <Button
+              className="bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold px-8 py-3 rounded-xl"
+              asChild
             >
+              <a href="/faq">❓ Συχνές Ερωτήσεις</a>
+            </Button>
+          </section>
+
+          {/* ── ΕΠΙΚΟΙΝΩΝΙΑ ── */}
+          <section className="mx-4 sm:mx-6 my-10 rounded-2xl bg-white text-[#033941] py-12 px-6 text-center">
+            <h2 className="text-2xl font-bold mb-1">Επικοινωνήστε μαζί μας</h2>
+            <p className="text-gray-500 text-sm mb-8">Είμαστε διαθέσιμοι για κάθε ερώτηση ή ραντεβού</p>
+            <div className="flex flex-col items-center gap-3 mb-8">
+              <p className="flex items-center gap-2 font-medium">
+                <Phone className="w-4 h-4 text-yellow-500" aria-hidden="true" />
+                <a href="tel:+306982752398" className="hover:underline">698 275 2398</a>
+                <span className="text-gray-300">/</span>
+                <a href="tel:+306981149233" className="hover:underline">698 114 9233</a>
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-yellow-500" aria-hidden="true" />
+                <a href="mailto:thessvolt@gmail.com" className="hover:underline text-sm">
+                  thessvolt@gmail.com
+                </a>
+              </p>
+              <p className="flex items-center gap-2 text-sm text-gray-500">
+                <Clock className="w-4 h-4" />
+                Δευτέρα–Σάββατο, 08:00–20:00
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Button variant="outline" className="border-[#033941]/20 text-[#033941] hover:bg-[#033941]/5 rounded-xl" asChild>
+                <a href="https://wa.me/306982752398" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              </Button>
+              <Button variant="outline" className="border-[#033941]/20 text-[#033941] hover:bg-[#033941]/5 rounded-xl" asChild>
+                <a href="viber://chat?number=+306982752398" rel="noopener noreferrer">Viber</a>
+              </Button>
+              <Button asChild className="bg-[#033941] text-white hover:bg-[#044f5a] rounded-xl">
+                <a href="https://g.co/kgs/3dbLYwo" target="_blank" rel="noopener noreferrer">
+                  <Star className="w-4 h-4 mr-2" />
+                  Google Reviews
+                </a>
+              </Button>
+            </div>
+          </section>
+
+          {/* ── ΡΑΝΤΕΒΟΥ ── */}
+          <section className="bg-[#022a30] border-t border-white/10 py-16 px-4 sm:px-6 text-center">
+            <h2 className="text-2xl font-bold text-yellow-400 mb-1">Κλείστε Ραντεβού</h2>
+            <p className="text-gray-400 text-sm mb-8">Συμπληρώστε τα παρακάτω και θα σας καλέσουμε σύντομα.</p>
+
+            <div className="max-w-lg mx-auto grid gap-3">
+              <input
+                type="text"
+                placeholder="Ονοματεπώνυμο"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <input
+                type="tel"
+                placeholder="Τηλέφωνο"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <input
+                type="text"
+                placeholder="Περιοχή"
+                onChange={(e) => setArea(e.target.value)}
+                value={area}
+                className="p-3 rounded-xl text-[#033941] bg-white w-full placeholder:text-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <select
+                value={service}
+                onChange={(e) => setService(e.target.value)}
+                className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              >
+                <option value="">Επιλογή Υπηρεσίας</option>
+                <option value="Ηλεκτρολογικές Βλάβες">Ηλεκτρολογικές Βλάβες</option>
+                <option value="Πρίζες & Διακόπτες">Πρίζες & Διακόπτες</option>
+                <option value="Συστήματα Ασφαλείας">Συστήματα Ασφαλείας</option>
+                <option value="Έξυπνοι Αυτοματισμοί">Έξυπνοι Αυτοματισμοί</option>
+                <option value="Δικτυώσεις & Internet">Δικτυώσεις & Internet</option>
+                <option value="Φωτιστικά Σώματα">Φωτιστικά Σώματα</option>
+                <option value="Κεραίες & Τηλεόραση">Κεραίες & Τηλεόραση</option>
+                <option value="Έξυπνα Συστήματα Ελέγχου">Έξυπνα Συστήματα Ελέγχου</option>
+                <option value="Πιστοποιητικά ΔΕΗ (ΥΔΕ)">Πιστοποιητικά ΔΕΗ (ΥΔΕ)</option>
+                <option value="Σταθμοί Φόρτισης EV">Σταθμοί Φόρτισης EV</option>
+              </select>
+
+              <label className="text-left text-gray-300 flex items-center gap-2 text-sm cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={asap}
+                  onChange={() => setAsap(!asap)}
+                  className="accent-yellow-400 w-4 h-4"
+                />
+                Θέλω όσο πιο άμεσα γίνεται
+              </label>
+
+              {!asap && (
+                <div className="grid grid-cols-2 gap-3">
+                  <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  />
+                  <input
+                    type="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    className="p-3 rounded-xl text-[#033941] bg-white w-full text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  />
+                </div>
+              )}
+
+              <div className="grid grid-cols-3 gap-3 mt-2">
+                {[
+                  {
+                    label: "WhatsApp",
+                    action: () => {
+                      if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
+                      const msg = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`}`;
+                      window.open(`https://wa.me/306982752398?text=${encodeURIComponent(msg)}`, "_blank");
+                    },
+                  },
+                  {
+                    label: "Viber",
+                    action: () => {
+                      if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
+                      window.open("viber://chat?number=+306982752398", "_blank");
+                    },
+                  },
+                  {
+                    label: "Email",
+                    action: () => {
+                      if (!name || !phone || !service) { alert("Παρακαλώ συμπληρώστε όνομα, τηλέφωνο και υπηρεσία."); return; }
+                      const subject = "Ραντεβού ThessVolt";
+                      const body = `Γεια σας! Θα ήθελα να κλείσω ραντεβού.\n\n👤 Όνομα: ${name}\n📞 Τηλέφωνο: ${phone}\n📍 Περιοχή: ${area}\n⚡ Υπηρεσία: ${service}\n${asap ? "📆 Όσο πιο άμεσα γίνεται" : `📅 Ημερομηνία: ${date}\n⏰ Ώρα: ${time}`}`;
+                      window.open(`mailto:thessvolt@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+                    },
+                  },
+                ].map(({ label, action }) => (
+                  <button
+                    key={label}
+                    onClick={action}
+                    className="bg-yellow-400 hover:bg-yellow-300 text-[#033941] font-bold py-3 rounded-xl text-sm transition-colors shadow"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ── FOOTER ── */}
+          <footer className="text-center py-5 text-xs text-gray-500 bg-[#022a30] border-t border-white/5">
+            &copy; 2025 ThessVolt · Ηλεκτρολογικές Υπηρεσίες Θεσσαλονίκη
+            <a href="/privacy-policy" className="underline hover:text-yellow-400 ml-3">
               Πολιτική Απορρήτου
             </a>
           </footer>
-        </div> {/* Κλείνει το .relative.z-10 */}
-      </div> {/* Κλείνει το .min-h-screen */}
+        </div>
+      </div>
     </>
   );
 }
